@@ -1,4 +1,11 @@
-import { ChakraProvider, Heading, IconButton } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  ColorModeProvider,
+  Heading,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import React from "react";
 import {
   Navbar,
@@ -6,9 +13,10 @@ import {
   NavLinkWithChild,
   SubLink,
 } from "../components/Navbar";
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiMoon, BiSun } from "react-icons/bi";
 
 const App: React.FC = ({ Component, pageProps }: any) => {
+  const { toggleColorMode } = useColorMode();
   return (
     <>
       <ChakraProvider>
@@ -17,11 +25,11 @@ const App: React.FC = ({ Component, pageProps }: any) => {
           brand={<Heading>Blog</Heading>}
         >
           <NavLink href="/">Home 🏠</NavLink>
-          <NavLinkWithChild href="/" title="Blog 📰">
-            <SubLink href="/" title="Titre" m="5">
-              Lorem
-            </SubLink>
-          </NavLinkWithChild>
+          <IconButton
+            icon={useColorModeValue(<BiMoon />, <BiSun />)}
+            aria-label="colormode-btn"
+            onClick={toggleColorMode}
+          />
         </Navbar>
         <Component {...pageProps} />
       </ChakraProvider>
