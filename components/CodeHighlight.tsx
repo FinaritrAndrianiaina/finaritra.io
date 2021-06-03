@@ -1,23 +1,24 @@
 import React from "react";
-import darcula from "react-syntax-highlighter/dist/cjs/styles/prism/darcula";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 import { PrismLight, PrismAsyncLight } from "react-syntax-highlighter";
+import { css } from "@emotion/react";
 
 const SyntaxHighlighter =
   typeof window === "undefined" ? PrismLight : PrismAsyncLight;
 
-export default class CodeHighlight extends React.PureComponent<{
-  language: string;
-  value?: string;
-}> {
-  render() {
-    const { language, value } = this.props;
-    return (
-      <SyntaxHighlighter
-        language={(language === "ts" ? "typescript" : language) || "typescript"}
-        style={darcula}
-      >
-        {value}
-      </SyntaxHighlighter>
-    );
-  }
-}
+const CodeHighlight: React.FC = (props: any) => {
+  return (
+    <SyntaxHighlighter
+      style={atomDark}
+      showLineNumbers
+      language={
+        (props.className.split("-")[1] === "ts"
+          ? "typescript"
+          : props.className.split("-")[1]) || "typescript"
+      }
+    >
+      {props.children}
+    </SyntaxHighlighter>
+  );
+};
+export default CodeHighlight;
