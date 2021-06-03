@@ -1,27 +1,32 @@
-import React from 'react';
-import glob from 'glob';
-import { BlogPost } from '../../components/BlogPost';
-import { loadPost } from '../../loader';
+import React from "react";
+import glob from "glob";
+import { loadPost } from "../../loader";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
 
 function Post(props: any) {
   const { post } = props;
-  return <BlogPost post={post} />;
+  return (
+    <>
+      <MDXRemote {...post}></MDXRemote>
+    </>
+  );
 }
 
 export const getStaticPaths = () => {
-  const blogs = glob.sync('./md/blog/*.md');
+  const blogs = glob.sync("./md/blog/*.mdx");
   const slugs = blogs.map((file: string) => {
-    const popped = file.split('/').pop();
+    const popped = file.split("/").pop();
     if (!popped) throw new Error(`Invalid blog path: ${file}`);
-    return popped.slice(0, -3).trim();
+    return popped.slice(0, -4).trim();
   });
-
   const paths = slugs.map((slug) => `/blog/${slug}`);
   return { paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  const post = await loadPost(`blog/${params.blog}.md`);
+  const { meta, content } = await loadPost(`blog/${params.blog}.mdx`);
+  const post = await serialize(content);
   return { props: { post } };
 };
 
