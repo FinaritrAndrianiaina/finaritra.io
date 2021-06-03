@@ -1,6 +1,9 @@
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import React from "react";
-import { Text, Heading, Flex, Box } from "@chakra-ui/react";
+import Markdown from "../components/Markdown";
+import { loadMarkdownFile } from "../loader";
 
 const Header = () => {
   return (
@@ -29,7 +32,7 @@ const Header = () => {
   );
 };
 
-export default function Home() {
+const Home = (props: any) => {
   return (
     <>
       <Head>
@@ -48,6 +51,17 @@ export default function Home() {
           <Header />
         </Box>
       </Flex>
+      <Container>
+        <Markdown md={props.introduction} />
+      </Container>
     </>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const { content } = await loadMarkdownFile("introduction.mdx");
+  const introduction = await serialize(content);
+  return { props: { introduction } };
+};
+
+export default Home;
