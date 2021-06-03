@@ -1,11 +1,10 @@
 import RSS from 'rss';
 import fs from 'fs';
 import showdown from 'showdown';
-import { globals } from './globals';
-import { PostData } from './loader';
+import { globals } from './globals'
 
-export const generateRSS = async (posts: PostData[]) => {
-  posts.map((post) => {
+export const generateRSS = async (posts: any[]) => {
+  posts.map((post: { canonicalUrl: any; }) => {
     if (!post.canonicalUrl)
       throw new Error(
         "Missing canonicalUrl. A canonical URL is required for RSS feed generation. If you don't care about RSS, uncomment `generateRSS(posts)` at the bottom of index.tsx."
