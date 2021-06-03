@@ -3,6 +3,7 @@ title: Choosing a tech stack for my personal dev blog in 2020
 published: true
 datePublished: 1590463136775
 author: Colin McDonnell
+description: Lorem ipsum lava be gravy
 authorTwitter: colinhacks
 authorPhoto: /img/profile.jpg
 tags:
@@ -60,7 +61,7 @@ Next.js is by far the most elegant way (for now) to do any static generation or 
 
 Here's a quick breakdown of the project structure. No need to understand every piece of it; but it may be useful to refer to throughout the rest of this post.
 
-```
+```bash
 .
 ├── README.md
 ├── public // all static files (images, etc) go here
@@ -131,13 +132,12 @@ To achieve this I implemented a custom `code` renderer (`/components/Code.tsx`) 
 
 <!-- I landed on this solution after wasting hours playing with other options. CodeMirror has bad React support (the only React wrapper for it is inauspiciously named `react-codemirror2`) and [bizarre selection issues](https://github.com/codemirror/CodeMirror/issues/1099) for `readonly` code blocks. The popular `highlight.js` project requires you to [initialize the library](https://github.com/highlightjs/highlight.js/issues/925) in `componentDidMount` like its 2015 :/  -->
 
-<pre>
 ```ts
 // pretty neat huh?
 const test = (arg: string) => {
   return arg.length > 5;
 };
-```</pre>
+```
 
 turns into this:
 

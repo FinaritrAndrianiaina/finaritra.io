@@ -15,9 +15,12 @@ import {
   Text,
   Link,
   Icon,
+  useColorMode,
+  IconButton,
 } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import NextLink from "next/link";
+import { BiMoon, BiSun } from "react-icons/bi";
 
 const _NavLink = (
   { children, variant = "ghost", colorScheme = undefined, href, ...rest },
@@ -45,11 +48,8 @@ export const NavLinkWithChild = ({ children, title, href, ...rest }) => {
       <PopoverTrigger>
         <NavLink href={href}>{title}</NavLink>
       </PopoverTrigger>
-      <PopoverContent
-        bg={useColorModeValue("whiteAlpha.100", "blackAlpha.100")}
-        {...rest}
-      >
-        <PopoverBody backdropFilter="blur(10px)">{children}</PopoverBody>
+      <PopoverContent {...rest}>
+        <PopoverBody>{children}</PopoverBody>
       </PopoverContent>
     </Popover>
   );
@@ -97,6 +97,7 @@ export const SubLink = ({ children, title, href, ...rest }) => {
 export const Navbar = ({ children, brand, mobileContent, w = "full" }) => {
   const navRef = useRef(null);
   const mobile = useBreakpointValue({ base: true, lg: false });
+  const { toggleColorMode } = useColorMode();
   return (
     <>
       <Box zIndex="1" position="fixed" boxShadow="sm" w={w}>
@@ -116,6 +117,11 @@ export const Navbar = ({ children, brand, mobileContent, w = "full" }) => {
           </Flex>
           <HStack spacing="5" hidden={mobile} width={"auto"}>
             {children}
+            <IconButton
+              icon={useColorModeValue(<BiMoon />, <BiSun />)}
+              aria-label="colormode-btn"
+              onClick={toggleColorMode}
+            />
           </HStack>
           {Boolean(mobileContent) && (
             <HStack spacing="4" hidden={!mobile} width={"auto"}>

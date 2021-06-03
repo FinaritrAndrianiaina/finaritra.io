@@ -8,7 +8,38 @@ And that's the point! After you clone/fork it, look through this code to learn h
 
 Devii was designed to place _zero restrictions_ on what your site can be or become. You can use any React component or styling library, pull in data from third-party APIs, even implement user accounts. Your personal website is the online manifestation of you. Don't compromise.
 
-```cpp
+```tsx
 // pretty neat huh?
-#include "stream.io"
+import { ChakraProvider, Heading, IconButton } from "@chakra-ui/react";
+import React from "react";
+import {
+  Navbar,
+  NavLink,
+  NavLinkWithChild,
+  SubLink,
+} from "../components/Navbar";
+import { BiMenu } from "react-icons/bi";
+
+const App: React.FC = ({ Component, pageProps }) => {
+  return (
+    <>
+      <ChakraProvider>
+        <Navbar
+          mobileContent={<IconButton icon={<BiMenu />} aria-label="menu" />}
+          brand={<Heading>Blog</Heading>}
+        >
+          <NavLink href="/">Home 🏠</NavLink>
+          <NavLinkWithChild href="/" title="Blog 📰">
+            <SubLink href="/" title="Titre" m="5">
+              Lorem
+            </SubLink>
+          </NavLinkWithChild>
+        </Navbar>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </>
+  );
+};
+
+export default App;
 ```

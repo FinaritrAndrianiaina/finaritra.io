@@ -1,23 +1,6 @@
 import matter from "gray-matter";
 import glob from "glob";
-
-type RawFile = { path: string; content: string };
-
-type PostInfo = {
-  title: string;
-  published: boolean;
-  datePublished: number;
-  author: string;
-  tags: string[];
-  authorPhoto: string;
-  bannerPhoto: string;
-  canonicalUrl: string;
-};
-
-type PostData = {
-  meta: PostInfo;
-  content: string;
-};
+import { RawFile, PostData, PostInfo } from "./blog.type";
 
 export const loadMarkdownFile = async (path: string): Promise<RawFile> => {
   const mdFile = await import(`./md/${path}`);
@@ -26,8 +9,10 @@ export const loadMarkdownFile = async (path: string): Promise<RawFile> => {
 
 export const formatMD = (file: RawFile): PostData => {
   const { data, content } = matter(file.content);
-
+  console.log(`file.path`, file.path);
   if (!data.title) throw new Error(`Missing required field: title.`);
+  if (!data.description && !data.subtitle)
+    throw new Error(`Missing required field: description or subtitle.`);
 
   if (!content) throw new Error(`Missing required field: content.`);
 
@@ -35,11 +20,12 @@ export const formatMD = (file: RawFile): PostData => {
     title: data.title,
     published: Boolean(data.published),
     datePublished: data.datePublished,
+    description: data.description || data.subtitle,
     author: data.author,
     tags: data.tags || [],
     authorPhoto: data.authorPhoto,
     bannerPhoto: data.bannerPhoto,
-    canonicalUrl: data.canonicalUrl,
+    canonicalUrl: `/${file.path.split(".")[0]}`,
   };
 
   return { meta, content };
@@ -61,9 +47,9 @@ export const loadPost = async (path: string): Promise<PostData> => {
   return formatMD(file);
 };
 
-export const loadBlogPosts = async (): Promise<any> => {
+export const loadBlogPosts = async (): Promise<PostData[]> => {
   return await (
-    await loadMarkdownFiles(`blog/*.md`)
+    await loadMarkdownFiles(`blog/*.mdx`)
   )
     .map(formatMD)
     .filter((a) => a.meta.published)

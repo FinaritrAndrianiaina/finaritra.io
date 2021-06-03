@@ -1,9 +1,19 @@
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Divider,
+  Flex,
+  Heading,
+  HStack,
+  Text,
+} from "@chakra-ui/react";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import React from "react";
+import { PostData } from "../blog.type";
+import BlogCard from "../components/BlogCard";
 import Markdown from "../components/Markdown";
-import { loadMarkdownFile } from "../loader";
+import { loadBlogPosts, loadMarkdownFile } from "../loader";
 
 const Header = () => {
   return (
@@ -32,7 +42,7 @@ const Header = () => {
   );
 };
 
-const Home = (props: any) => {
+const Home = (props: { introduction: any; posts: PostData[] }) => {
   return (
     <>
       <Head>
@@ -51,17 +61,25 @@ const Home = (props: any) => {
           <Header />
         </Box>
       </Flex>
-      <Container>
+      <Divider />
+      <Container maxW="container.lg">
         <Markdown md={props.introduction} />
       </Container>
+      <HStack flexWrap="wrap" spacing="5" justifyContent="center">
+        {props.posts.map((v, index) => (
+          <BlogCard key={index + "-card"} {...v.meta} />
+        ))}
+      </HStack>
     </>
   );
 };
 
 export const getStaticProps = async () => {
   const { content } = await loadMarkdownFile("introduction.mdx");
+  const posts = await loadBlogPosts();
+  console.log(`posts.length`, posts.length);
   const introduction = await serialize(content);
-  return { props: { introduction } };
+  return { props: { introduction, posts } };
 };
 
 export default Home;

@@ -2,13 +2,16 @@ import React from "react";
 import glob from "glob";
 import { loadPost } from "../../loader";
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
+import Markdown from "../../components/Markdown";
+import { Container } from "@chakra-ui/layout";
 
 function Post(props: any) {
   const { post } = props;
   return (
     <>
-      <MDXRemote {...post}></MDXRemote>
+      <Container maxW="container.xl">
+        <Markdown md={post} />
+      </Container>
     </>
   );
 }

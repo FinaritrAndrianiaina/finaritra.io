@@ -6,7 +6,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Navbar,
   NavLink,
@@ -16,7 +16,6 @@ import {
 import { BiMenu, BiMoon, BiSun } from "react-icons/bi";
 
 const App: React.FC = ({ Component, pageProps }: any) => {
-  const { toggleColorMode } = useColorMode();
   return (
     <>
       <ChakraProvider>
@@ -25,11 +24,6 @@ const App: React.FC = ({ Component, pageProps }: any) => {
           brand={<Heading>Blog</Heading>}
         >
           <NavLink href="/">Home 🏠</NavLink>
-          <IconButton
-            icon={useColorModeValue(<BiMoon />, <BiSun />)}
-            aria-label="colormode-btn"
-            onClick={toggleColorMode}
-          />
         </Navbar>
         <Component {...pageProps} />
       </ChakraProvider>

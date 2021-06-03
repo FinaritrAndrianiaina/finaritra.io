@@ -41,6 +41,7 @@ export default {
   }),
   inlineCode: withProps(Code, {
     py: 1,
+    borderRadius: "md",
     shadow: "sm",
   }),
   hr: withProps(Divider, { marginY: 5 }),
