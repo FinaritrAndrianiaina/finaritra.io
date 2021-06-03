@@ -9,6 +9,7 @@ import {
   Image,
   Code,
 } from "@chakra-ui/react";
+import CodeHighlight from "./CodeHighlight";
 
 export default {
   ...ChakraComponent,
@@ -26,6 +27,7 @@ export default {
     borderRadius: 10,
     shadow: "xl",
   }),
+  code: CodeHighlight,
   p: withProps(Text, { fontSize: ["sm", "md"], my: 5 }),
   a: withProps(Link, {
     isExternal: true,
