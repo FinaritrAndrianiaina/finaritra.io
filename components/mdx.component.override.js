@@ -40,7 +40,7 @@ export default {
     padding: ["revert", "initial"],
   }),
   inlineCode: withProps(Code, {
-    py: 1,
+    py: 0.5,
     borderRadius: "md",
     shadow: "sm",
   }),
