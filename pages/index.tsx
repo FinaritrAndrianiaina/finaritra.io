@@ -1,14 +1,13 @@
-import Head from 'next/head';
-import { generateRSS } from '../rssUtil';
-import { Markdown } from '../components/Markdown';
-import { PostData, loadBlogPosts, loadMarkdownFile } from '../loader';
-import { PostCard } from '../components/PostCard';
+import Head from "next/head";
+import { loadBlogPosts, loadMarkdownFile } from "../loader";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
 
 const Home = (props: {
-  introduction: string;
+  introduction: any;
   features: string;
   readme: string;
-  posts: PostData[];
+  posts: Array<any>;
 }) => {
   return (
     <div className="content">
@@ -16,34 +15,18 @@ const Home = (props: {
         <title>Introducing Devii</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="introduction">
-        <h1>Introduction to Devii</h1>
-        <Markdown source={props.introduction} />
-      </div>
-
-      <div className="section">
-        <h2>Features</h2>
-        <div className="medium-wide">
-          <Markdown source={props.features} />
-        </div>
-      </div>
+      <MDXRemote {...props.introduction} />
 
       <div className="section">
         <h2>My blog posts</h2>
         <p>
           This section demonstrates the power of dynamic imports. Every Markdown
           file under <code>/md/blog</code> is automatically parsed into a
-          structured TypeScript object and available in the{' '}
+          structured TypeScript object and available in the{" "}
           <code>props.posts</code> array. These blog post "cards" are
           implemented in the
           <code>/components/PostCard.tsx</code> component.
         </p>
-        <div className="post-card-container">
-          {props.posts.map((post, j) => {
-            return <PostCard post={post} key={j} />;
-          })}
-        </div>
       </div>
 
       <div className="section">
@@ -53,12 +36,12 @@ const Home = (props: {
             <em>Seems like it might be useful!</em>
           </p>
           <p>
-            — Dan Abramov, taken{' '}
+            — Dan Abramov, taken{" "}
             <a
               href="https://github.com/colinhacks/devii/issues/2"
               target="_blank"
             >
-              {' '}
+              {" "}
               utterly out of context
             </a>
           </p>
@@ -98,20 +81,11 @@ const Home = (props: {
 export default Home;
 
 export const getStaticProps = async () => {
-  const introduction = await loadMarkdownFile('introduction.md');
-  const features = await loadMarkdownFile('features.md');
-  const readmeFile = await import(`../${'README.md'}`);
-  const readme = readmeFile.default;
+  const _introduction = await loadMarkdownFile("introduction.md");
+  const introduction = await serialize(_introduction.content);
   const posts = await loadBlogPosts();
-
-  // comment out to turn off RSS generation during build step.
-  await generateRSS(posts);
-
   const props = {
-    introduction: introduction.contents,
-    features: features.contents,
-    readme: readme,
-    posts,
+    introduction: introduction,
   };
 
   return { props };
