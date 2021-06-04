@@ -130,7 +130,6 @@ export const Navbar = ({ children, brand, mobileContent, w = "full" }) => {
           )}
         </Flex>
       </Box>
-      <chakra.div zIndex="0" h={{ base: "60px", md: "73px" }} w="full" />
     </>
   );
 };
