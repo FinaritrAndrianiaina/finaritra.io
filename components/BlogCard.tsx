@@ -17,6 +17,7 @@ import { format } from "fecha";
 import React from "react";
 import { PostInfo } from "../blog.type";
 import NextLink from "next/link";
+import Link from "next/link";
 
 export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
   return (
@@ -54,17 +55,15 @@ export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
               </Badge>
             ))}
           </HStack>
-          <NextLink href={props.canonicalUrl} passHref>
-            <LinkOverlay>
-              <Heading
-                color={useColorModeValue("gray.700", "white")}
-                fontSize={"2xl"}
-                fontFamily={"body"}
-              >
-                {props.title}
-              </Heading>
-            </LinkOverlay>
-          </NextLink>
+          <Heading
+            color={useColorModeValue("gray.700", "white")}
+            fontSize={"2xl"}
+            fontFamily={"body"}
+          >
+            <NextLink href={props.canonicalUrl} passHref>
+              <LinkOverlay>{props.title}</LinkOverlay>
+            </NextLink>
+          </Heading>
           <Text color={"gray.500"}>{props.description}</Text>
         </Stack>
       </VStack>
