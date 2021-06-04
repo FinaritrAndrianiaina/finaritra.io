@@ -11,6 +11,7 @@ import {
   Badge,
   LinkBox,
   LinkOverlay,
+  VStack,
 } from "@chakra-ui/react";
 import { format } from "fecha";
 import React from "react";
@@ -20,48 +21,54 @@ import NextLink from "next/link";
 export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
   return (
     <LinkBox
+      _hover={{ transform: "scale(1.01)" }}
+      transition="ease .3s"
       as="article"
-      maxW={"445px"}
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      height="600px"
+      maxW={"400px"}
       w={"full"}
       bg={useColorModeValue("white", "gray.900")}
-      boxShadow={"2xl"}
+      boxShadow="md"
       rounded={"md"}
-      p={6}
       overflow={"hidden"}
     >
-      <Box
-        h={"210px"}
-        bg={"gray.100"}
-        mt={-6}
-        mx={-6}
-        mb={6}
-        backgroundPosition="center"
-        backgroundImage={`url(${props.bannerPhoto})`}
-        backgroundSize="cover"
-        pos={"relative"}
-      />
-      <Stack>
-        <HStack textTransform={"uppercase"} fontWeight={800}>
-          {props.tags.map((v, index) => (
-            <Badge variant="outline" key={index + "tags"}>
-              {v}
-            </Badge>
-          ))}
-        </HStack>
-        <NextLink href={props.canonicalUrl} passHref>
-          <LinkOverlay>
-            <Heading
-              color={useColorModeValue("gray.700", "white")}
-              fontSize={"2xl"}
-              fontFamily={"body"}
-            >
-              {props.title}
-            </Heading>
-          </LinkOverlay>
-        </NextLink>
-        <Text color={"gray.500"}>{props.description}</Text>
-      </Stack>
-      <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
+      <VStack w="full">
+        <Box
+          h={"210px"}
+          bg={"gray.100"}
+          w="full"
+          mb={6}
+          backgroundPosition="center"
+          backgroundImage={`url(${props.bannerPhoto})`}
+          backgroundSize="cover"
+          pos={"relative"}
+        />
+        <Stack p="5" w="full">
+          <HStack textTransform={"uppercase"} fontWeight={800}>
+            {props.tags.map((v, index) => (
+              <Badge variant="outline" key={index + "tags"}>
+                {v}
+              </Badge>
+            ))}
+          </HStack>
+          <NextLink href={props.canonicalUrl} passHref>
+            <LinkOverlay>
+              <Heading
+                color={useColorModeValue("gray.700", "white")}
+                fontSize={"2xl"}
+                fontFamily={"body"}
+              >
+                {props.title}
+              </Heading>
+            </LinkOverlay>
+          </NextLink>
+          <Text color={"gray.500"}>{props.description}</Text>
+        </Stack>
+      </VStack>
+      <Stack p="5" direction={"row"} spacing={4} align={"center"}>
         <Avatar src={props.authorPhoto} name={props.author} />
         <Stack direction={"column"} spacing={0} fontSize={"sm"}>
           <Text fontWeight={600}>{props.author}</Text>

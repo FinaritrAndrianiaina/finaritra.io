@@ -10,10 +10,13 @@ import {
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import React from "react";
+import { useEffect } from "react";
 import { PostData } from "../blog.type";
 import BlogCard from "../components/BlogCard";
 import Markdown from "../components/Markdown";
+import Profile from "../components/Profile";
 import { loadBlogPosts, loadMarkdownFile } from "../loader";
+import { createScript } from "../createScript";
 
 const Header = () => {
   return (
@@ -43,6 +46,13 @@ const Header = () => {
 };
 
 const Home = (props: { introduction: any; posts: PostData[] }) => {
+  useEffect(() => {
+    const script = createScript("/js/slick-carousel.js");
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -62,14 +72,21 @@ const Home = (props: { introduction: any; posts: PostData[] }) => {
         </Box>
       </Flex>
       <Divider />
-      <Container maxW="container.lg">
+      <Container maxW="container.xl">
         <Markdown md={props.introduction} />
       </Container>
-      <HStack flexWrap="wrap" spacing="5" justifyContent="center">
-        {props.posts.map((v, index) => (
-          <BlogCard key={index + "-card"} {...v.meta} />
-        ))}
-      </HStack>
+      <Divider mt="5" />
+      <Container maxW="container.xl">
+        <Heading p="3">Articles</Heading>
+        <Box id="blog-list">
+          {props.posts.map((v, index) => (
+            <Box my="2" mx="2" key={index + "-card"}>
+              <BlogCard {...v.meta} />
+            </Box>
+          ))}
+        </Box>
+      </Container>
+      <Profile />
     </>
   );
 };

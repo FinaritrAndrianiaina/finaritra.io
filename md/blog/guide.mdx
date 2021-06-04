@@ -1,0 +1,59 @@
+---
+layout: default
+title: Comment ajouter un article?
+description: Nous allons voir à quel point c'est facile d'ajouter un article à ce site.
+---
+
+#### Etape 1
+Créer un nouveau fichier dans  `nom_article.mdx` dans `pages/blog` 
+Puis ajouter dans le fichier `blog_link.js` le nom de votre article et ses détails:
+```js
+export default [
+  //... article par défaut
+  {
+    title: "Titre de votre Article",
+    description:"Description de votre article",
+    path:"blog/nom_article.mdx"
+  }
+]
+```
+
+#### Etape 2
+Ajouter l'en-tête de votre article comme suis dans le fichier précedemment créer.
+
+```yaml
+---
+layout: default
+title: Titre de votre article
+description: Description de votre article
+---
+```
+
+#### Etape 3
+Puis ajouter le contenu de votre article en bas de l'entête. Le contenu doit être écrit en markdown. 
+Par exemple: 
+
+```markdown
+
+#### Titre
+
+Voici un exemple de Paragraphe en markdown.
+
+Liste ordonnée
+1. first
+2. second
+3. third
+
+Liste desordonnée 
+- first
+- second
+- third
+
+```
+
+Pour plus d'infos je vous invite à voir le site de [mdx-js][mdx].
+
+#### Etape 4
+Maintenant il suffit d'ajouter l'article sur le site.
+
+[mdx]: https://mdxjs.com/getting-started/#table-of-components
