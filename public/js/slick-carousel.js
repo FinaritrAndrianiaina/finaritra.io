@@ -2,7 +2,7 @@ $(document).ready(function () {
   $("#blog-list").slick({
     autoplay: true,
     autoplaySpeed: 6000,
-    arrow: false,
+    arrows: false,
     slidesToShow: 3,
     dots: true,
     responsive: [

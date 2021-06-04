@@ -27,8 +27,8 @@ export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
-      height="600px"
-      maxW={"400px"}
+      height="550px"
+      maxW={"600px"}
       w={"full"}
       bg={useColorModeValue("white", "gray.900")}
       boxShadow="md"
