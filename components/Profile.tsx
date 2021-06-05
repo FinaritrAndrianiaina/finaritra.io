@@ -147,8 +147,8 @@ export const RepositoryCardList = ({ limit = 0 }) => {
               as={LinkBox}
               key={index + "-repos"}
               p="5"
-              mx={["0", "2"]}
               my="1"
+              mx={["0", "1"]}
               borderWidth="thin"
               minH="100px"
               rounded="13px"

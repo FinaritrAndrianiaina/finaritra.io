@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { ReactNode } from "react";
+import NextLink from "next/link";
 
 const Logo = (props: any) => {
   return (
@@ -82,10 +83,15 @@ export const Footer = () => {
       >
         <Logo />
         <Stack direction={"row"} spacing={6}>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>About</Link>
-          <Link href={"#"}>Blog</Link>
-          <Link href={"#"}>Contact</Link>
+          <NextLink href={"/"} passHref>
+            <Link>Home</Link>
+          </NextLink>
+          <NextLink href={"/aboutme"} passHref>
+            <Link>A propos</Link>
+          </NextLink>
+          <NextLink href={"/blog"} passHref>
+            <Link>Blog</Link>
+          </NextLink>
         </Stack>
       </Container>
 
@@ -103,7 +109,7 @@ export const Footer = () => {
           justify={{ base: "center", md: "space-between" }}
           align={{ base: "center", md: "center" }}
         >
-          <Text>© 2020 Chakra Templates. All rights reserved</Text>
+          <Text>© 2021. Created with chakra-ui and nextjs </Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton label={"Twitter"} href={"#"}>
               <FaTwitter />
