@@ -175,10 +175,6 @@ const RepositoryCardList = ({ limit = 0 }) => {
                     <Icon as={BiGitRepoForked} />
                     <Text>{v.forks}</Text>
                   </HStack>
-                  <HStack>
-                    <Icon as={FaEye} />
-                    <Text>{v.watchers_count}</Text>
-                  </HStack>
                 </HStack>
               </StatNumber>
               <StatHelpText>{v.description}</StatHelpText>
