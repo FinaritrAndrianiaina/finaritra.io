@@ -37,7 +37,6 @@ export const UserCard = () => {
 
   return (
     <LinkBox
-      m={["1", "5"]}
       display="flex"
       h="full"
       flexDir="column"
