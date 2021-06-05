@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Heading,
   Avatar,
@@ -9,55 +9,72 @@ import {
   Button,
   useColorModeValue,
   Container,
+  HStack,
+  Flex,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
+  Icon,
+  LinkBox,
+  LinkOverlay,
+  Link,
+  VStack,
+  Grid,
+  Center,
 } from "@chakra-ui/react";
+import { ReposList, UserSchema } from "../github.type";
+import { BiBook, BiGitRepoForked, BiGroup, BiStar } from "react-icons/bi";
+import useSWR from "swr";
+import NextLink from "next/link";
+import { FaEye, FaPeopleCarry } from "react-icons/fa";
 
-const Profile = () => {
+export const UserCard = () => {
+  const { data: userInfo } = useSWR<UserSchema, any>(
+    "https://api.github.com/users/FinaritrAndrianiaina"
+  );
+
   return (
-    <Container>
-      <Box
-        w={"full"}
-        bg={useColorModeValue("white", "gray.900")}
-        boxShadow={"2xl"}
-        rounded={"lg"}
-        p={6}
-        textAlign={"center"}
-      >
+    <LinkBox
+      m={["1", "5"]}
+      display="flex"
+      h="full"
+      flexDir="column"
+      w={"full"}
+      bg={useColorModeValue("white", "gray.900")}
+      boxShadow={"xl"}
+      rounded={"lg"}
+      p={6}
+      textAlign={"center"}
+    >
+      <Box>
         <Avatar
           size={"xl"}
-          src={
-            "https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-          }
+          src={userInfo?.avatar_url}
           name="FinaritrAndrianiaina"
           alt={"Avatar Alt"}
           mb={4}
           pos={"relative"}
-          _after={{
-            content: '""',
-            w: 4,
-            h: 4,
-            bg: "green.300",
-            border: "2px solid white",
-            rounded: "full",
-            pos: "absolute",
-            bottom: 0,
-            right: 3,
-          }}
         />
         <Heading fontSize={"2xl"} fontFamily={"body"}>
           ANDRIANIAINA Finaritra Haritiana
         </Heading>
-        <Text fontWeight={600} color={"gray.500"} mb={4}>
-          FinaritrAndrianiaina
-        </Text>
+        <NextLink href={userInfo ? userInfo.html_url : "#"} passHref>
+          <LinkOverlay isExternal as={Link}>
+            <Text fontWeight={600} color={"gray.500"} mb={4}>
+              FinaritrAndrianiaina
+            </Text>
+          </LinkOverlay>
+        </NextLink>
+      </Box>
+      <Box>
         <Text
           textAlign={"center"}
           color={useColorModeValue("gray.700", "gray.400")}
           px={3}
         >
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam
-          reprehenderit et tempore optio natus, laudantium rem similique facilis
-          labore veritatis aperiam molestiae aliquam quibusdam debitis odit,
-          dicta placeat accusantium delectus.
+          {userInfo?.bio}
         </Text>
 
         <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
@@ -95,39 +112,81 @@ const Profile = () => {
           </Badge>
         </Stack>
 
-        <Stack mt={8} direction={"row"} spacing={4}>
-          <Button
-            flex={1}
-            fontSize={"sm"}
-            rounded={"full"}
-            _focus={{
-              bg: "gray.200",
-            }}
-          >
-            Message
-          </Button>
-          <Button
-            flex={1}
-            fontSize={"sm"}
-            rounded={"full"}
-            bg={"blue.400"}
-            color={"white"}
-            boxShadow={
-              "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
-            }
-            _hover={{
-              bg: "blue.500",
-            }}
-            _focus={{
-              bg: "blue.500",
-            }}
-          >
-            Follow
-          </Button>
-        </Stack>
+        <VStack mt="4" justifyContent="center" direction={"row"} spacing={4}>
+          <HStack>
+            <Icon as={BiGroup} />
+            <span>
+              <strong>{userInfo?.followers}</strong> followers -{" "}
+              <strong>{userInfo?.following}</strong> following
+            </span>
+          </HStack>
+          <HStack>
+            <Icon as={BiBook} />
+            <span>
+              <strong>{userInfo?.public_repos}</strong> repository
+            </span>
+          </HStack>
+        </VStack>
       </Box>
-    </Container>
+    </LinkBox>
   );
 };
 
-export default Profile;
+const RepositoryCardList = ({ limit = 0 }) => {
+  const { data: userRepos } = useSWR<ReposList, any>(
+    "https://api.github.com/users/FinaritrAndrianiaina/repos?type=owner&sort=updated&direction=desc&per_page=100&page=1"
+  );
+  return (
+    <Flex flexDirection={["column", "column", "column", "row"]} w="full">
+      <Flex flexWrap="wrap" w="full">
+        {userRepos
+          ?.slice(0, limit === 0 ? userRepos.length : limit)
+          .sort((b, a) => a.stargazers_count - b.stargazers_count)
+          .map((v, index) => (
+            <Stat
+              minW="335px"
+              as={LinkBox}
+              key={index + "-repos"}
+              p="5"
+              borderWidth="thin"
+              m="1"
+              minH="100px"
+              rounded="13px"
+            >
+              <NextLink href={v.html_url} passHref>
+                <LinkOverlay isExternal as={Link}>
+                  <StatLabel>
+                    {v.full_name}
+                    {v.archived ? (
+                      <Badge ml="1" rounded="13px" variant="solid">
+                        Archived
+                      </Badge>
+                    ) : null}
+                  </StatLabel>
+                </LinkOverlay>
+              </NextLink>
+              <StatNumber>
+                <HStack w="full">
+                  <HStack>
+                    <Icon as={BiStar} />
+                    <Text>{v.stargazers_count}</Text>
+                  </HStack>
+                  <HStack>
+                    <Icon as={BiGitRepoForked} />
+                    <Text>{v.forks}</Text>
+                  </HStack>
+                  <HStack>
+                    <Icon as={FaEye} />
+                    <Text>{v.watchers_count}</Text>
+                  </HStack>
+                </HStack>
+              </StatNumber>
+              <StatHelpText>{v.description}</StatHelpText>
+            </Stat>
+          ))}
+      </Flex>
+    </Flex>
+  );
+};
+
+export default RepositoryCardList;

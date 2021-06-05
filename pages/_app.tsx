@@ -12,7 +12,8 @@ import React, { useEffect, useState } from "react";
 import { Navbar, NavLink } from "../components/Navbar";
 import { BiMenu } from "react-icons/bi";
 import { Footer } from "../components/Footer";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
+import { SWRConfig } from "swr";
 
 const Loading = () => {
   const router = useRouter();
@@ -54,16 +55,22 @@ const App: React.FC = ({ Component, pageProps }: any) => {
     <>
       <ChakraProvider>
         <Loading />
+
         <Navbar
           mobileContent={<IconButton icon={<BiMenu />} aria-label="menu" />}
           brand={<Heading>Blog</Heading>}
         >
           <NavLink href="/">Home 🏠</NavLink>
+          <NavLink href="/aboutme">About me 😎</NavLink>
           <NavLink href="/blog">Blog 📰</NavLink>
         </Navbar>
-        <chakra.main mb="10">
-          <Component {...pageProps} />
-        </chakra.main>
+        <SWRConfig
+          value={{ fetcher: (url) => fetch(url).then((data) => data.json()) }}
+        >
+          <chakra.main mb="10">
+            <Component {...pageProps} />
+          </chakra.main>
+        </SWRConfig>
         <Footer />
       </ChakraProvider>
     </>
