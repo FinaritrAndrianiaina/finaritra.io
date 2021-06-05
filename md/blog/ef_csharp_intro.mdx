@@ -1,31 +1,42 @@
 ---
-layout: default
 title: ORM avec C# et SQL Server
-description: Introduction à EntityFrameworkCore
+description: Installation de EntityFrameworkCore
+published: true
+datePublished: 1622812401719
+author: Finaritra ANDRIANIAINA
+tags:
+  - C#
+  - SQL
+  - Dotnet
+authorPhoto: /img/profile.jpg
+bannerPhoto: /img/brook.jpg
 ---
 
 Entity Framework Core est une nouvelle version de Entity Framework après EF6.x. Elle est une version open-source, léger, extensible et cross-platform de Entity Framework.
 
-Entity Framework est un framework ORM (Object/Related Mapping). C'est une amélioration de ADO.NET qui donne aux développeurs une méchanisme automatisé pour accéder et 
+Entity Framework est un framework ORM (Object/Related Mapping). C'est une amélioration de ADO.NET qui donne aux développeurs une méchanisme automatisé pour accéder et
 enregistrer des données dans une base de donnée.
 
 ### Approche
 
 Il y deux types d'approche avec EF Core:
+
 1. code-first
 2. database-first
 
-
 #### 1. Code-first
+
 Dans l'approche code-first, l'API de EF Core crée les tables en migrant basée sur les conventions et configurations fournit par vos classes. Cette approche est trés utile puisqu'elle permet de créer des tables sans connaissance
 de la type de base de donnée utilisée.
 
 #### 2. Database-first
-Dans cette approche, l'API de EF Core crée les classes de domaine et context en se basant sur la base de donnée existant utilisant les commandes d'EF Core. 
+
+Dans cette approche, l'API de EF Core crée les classes de domaine et context en se basant sur la base de donnée existant utilisant les commandes d'EF Core.
 
 ### Base de donnée supportée
 
 La liste suivante donne les base de donnée supportée et ces NuGet packages pour EF Core:
+
 1. SQL Server: [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
 2. MySQL: [MySQL.Data.EntityFrameworkCore](https://www.nuget.org/packages/MySQL.Data.EntityFrameworkCore)
 3. PostgreSQL: [Npgsql.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL)
@@ -36,9 +47,10 @@ La liste suivante donne les base de donnée supportée et ces NuGet packages pou
 ### Ressources:
 
 Nous aurons besoin de:
+
 1. .NET 5 SDK
 2. IDE: Visual Studio 2019 ou Visual Studio Code (installer C# extension pack)
 3. Microsoft SQL Server
 4. Microsoft SqlServer Management
 
-[>> Etape suivante: installation](/blog/ef_csharp_installation)
+### A suivre...

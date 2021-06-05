@@ -1,4 +1,7 @@
 module.exports = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   trailingSlash: true,
   webpack: function (config) {
     config.module.rules.push({

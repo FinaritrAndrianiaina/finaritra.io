@@ -8,6 +8,7 @@ import {
   Link,
   Image,
   Code,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import CodeHighlight from "./CodeHighlight";
 
@@ -45,13 +46,15 @@ export default {
     shadow: "sm",
   }),
   hr: withProps(Divider, { marginY: 5 }),
-  blockquote: withProps(chakra.blockquote, {
-    borderLeft: "0.5em solid",
-    color: "whiteAlpha.800",
-    borderColor: "gray.800",
-    bg: "#55575a",
-    py: 3,
-    pl: 1,
-    my: 5,
+  blockquote: chakra("blockquote", {
+    baseStyle: {
+      borderLeft: "0.5em solid",
+      color: "whiteAlpha.800",
+      borderColor: "gray.900",
+      bg: "#55575a",
+      py: 3,
+      pl: 1,
+      my: 5,
+    },
   }),
 };

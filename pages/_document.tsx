@@ -14,16 +14,6 @@ export default class Document extends NextDocument {
           <meta content="#da532c" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
           <link href="/favicon.ico" rel="shortcut icon" />
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-            rel="stylesheet"
-            type="text/css"
-          />
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-            rel="stylesheet"
-            type="text/css"
-          />
           <style>
             {`
       .prestyle {
@@ -52,15 +42,6 @@ export default class Document extends NextDocument {
           <Main />
           <ColorModeScript />
           <NextScript />
-          <script
-            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossOrigin="anonymous"
-          ></script>
-          <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"
-            type="text/javascript"
-          ></script>
         </body>
       </Html>
     );

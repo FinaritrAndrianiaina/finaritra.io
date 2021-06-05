@@ -1,59 +1,67 @@
 ---
-layout: default
-title: Comment ajouter un article?
-description: Nous allons voir à quel point c'est facile d'ajouter un article à ce site.
+title: Guide pour l'ajout d'article
+description: Ajouter des articles ici est super facile
+tags:
+  - Blog
+  - Mdx
+  - Next.js
+published: true
+datePublished: 1622812401719
+author: Finaritra ANDRIANIAINA
+authorPhoto: /img/profile.jpg
 ---
 
 #### Etape 1
-Créer un nouveau fichier dans  `nom_article.mdx` dans `pages/blog` 
-Puis ajouter dans le fichier `blog_link.js` le nom de votre article et ses détails:
-```js
-export default [
-  //... article par défaut
-  {
-    title: "Titre de votre Article",
-    description:"Description de votre article",
-    path:"blog/nom_article.mdx"
-  }
-]
-```
+
+Créer un nouveau fichier dans `nom_article.mdx` dans `./md/blog`
 
 #### Etape 2
+
 Ajouter l'en-tête de votre article comme suis dans le fichier précedemment créer.
 
 ```yaml
 ---
-layout: default
-title: Titre de votre article
-description: Description de votre article
+title: Ajouter votre article
+published: true
+datePublished: 1594425078471
+description: AkoryAby eeeee
+author: Colin McDonnell
+tags:
+  - Blog
+  - Mdx
+  - Next.js
+authorPhoto: /img/profile.jpg
+bannerPhoto: /img/bannerDefault.png
 ---
 ```
 
 #### Etape 3
-Puis ajouter le contenu de votre article en bas de l'entête. Le contenu doit être écrit en markdown. 
-Par exemple: 
+
+Puis ajouter le contenu de votre article en bas de l'entête. Le contenu doit être écrit en markdown.
+Par exemple:
 
 ```markdown
-
 #### Titre
 
 Voici un exemple de Paragraphe en markdown.
 
 Liste ordonnée
+
 1. first
 2. second
 3. third
 
-Liste desordonnée 
+Liste desordonnée
+
 - first
 - second
 - third
-
 ```
 
 Pour plus d'infos je vous invite à voir le site de [mdx-js][mdx].
 
 #### Etape 4
+
 Maintenant il suffit d'ajouter l'article sur le site.
 
 [mdx]: https://mdxjs.com/getting-started/#table-of-components

@@ -24,7 +24,7 @@ export const formatMD = (file: RawFile): PostData => {
     author: data.author,
     tags: data.tags || [],
     authorPhoto: data.authorPhoto,
-    bannerPhoto: data.bannerPhoto,
+    bannerPhoto: data.bannerPhoto || null,
     canonicalUrl: `/${file.path.split(".")[0]}`,
   };
 

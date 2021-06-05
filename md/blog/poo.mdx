@@ -1,7 +1,14 @@
 ---
-layout: default
-title: La POO
-description: Les bases de la POO
+title: Poo
+description: Qu'est-ce que la poo?
+published: true
+datePublished: 1622812401719
+author: Finaritra ANDRIANIAINA
+tags:
+  - JAVA
+  - POO
+  - Dev
+authorPhoto: /img/profile.jpg
 ---
 
 ### Definition
@@ -12,45 +19,49 @@ La POO, c'est tout simplement **faire de son programme un ensemble d'objets qui 
 
 **Une classe peut être comparée à une moule** qui, lorsque nous le remplissons, nous donne un objet ayant la forme du moule ainsi que toutes ses caractéristiques. Comme quand vous étiez enfants, lorsque vous vous amusiez avec de la pâte à modeler.
 
-Par éxemple créeons une classe *Ville*.
-Vu que notre objectif est de construire un objet *Ville*, il va falloir définir les données qu'on va lui attribuer. 
-Nous dirons qu'un objet *Ville* possède : 
-- un nom, sous la forme d'une chaîne de caractères ; 
+Par éxemple créeons une classe _Ville_.
+Vu que notre objectif est de construire un objet _Ville_, il va falloir définir les données qu'on va lui attribuer.
+Nous dirons qu'un objet _Ville_ possède :
+
+- un nom, sous la forme d'une chaîne de caractères ;
 - un nombre d'habitants, sous la forme d'un entier ;
 - un pays apparenté, sous la forme d'une chaîne de caractères.
 
-Nous allons faire ceci en mettant des variables d'instance (de simples variables identiques à celles que vous manipulez habituellement) dans notre classe. Celle-ci va contenir une variable dont le rôle sera de stocker le nom, une autre stockera le nombre d'habitants et la dernière se chargera du pays ! 
+Nous allons faire ceci en mettant des variables d'instance (de simples variables identiques à celles que vous manipulez habituellement) dans notre classe. Celle-ci va contenir une variable dont le rôle sera de stocker le nom, une autre stockera le nombre d'habitants et la dernière se chargera du pays !
 
 ```java
 public class Ville {
-     String nomVille;  
-     String nomPays;  
+     String nomVille;
+     String nomPays;
      int nbreHabitants;
 }
 ```
 
-Contrairement aux classes, **les variables d'instance présentes dans une classe sont public si vous ne leur spécifiez pas de portée en Java**. Alors, on parle de *variable d'instance, parce que dans nos futures classes Java qui définiront des objets*, il y aura plusieurs types de variables. Pour le moment, sachez qu'il y a trois grands types de variables dans une classe objet : 
-1. **Les variables d'instance** : ce sont elles qui définiront les caractéristiques de notre objet. 
-2. **Les variables de classe** : celles-ci sont communes à toutes les instances de votre classe. 
+Contrairement aux classes, **les variables d'instance présentes dans une classe sont public si vous ne leur spécifiez pas de portée en Java**. Alors, on parle de _variable d'instance, parce que dans nos futures classes Java qui définiront des objets_, il y aura plusieurs types de variables. Pour le moment, sachez qu'il y a trois grands types de variables dans une classe objet :
+
+1. **Les variables d'instance** : ce sont elles qui définiront les caractéristiques de notre objet.
+2. **Les variables de classe** : celles-ci sont communes à toutes les instances de votre classe.
 3. **Les variables locales** : ce sont des variables que nous utiliserons pour travailler dans notre objet.
 
 Il est temps maintenant d'ajouter un constructeur.
-Notre premier constructeur sera ce qu'on appelle communément *un constructeur par défaut*, c'est-à-dire qu'il ne prendra aucun paramètre, mais permettra tout de même d'instancier un objet, et vu que nous sommes perfectionnistes, nous allons y initialiser nos variables d'instance. 
+Notre premier constructeur sera ce qu'on appelle communément _un constructeur par défaut_, c'est-à-dire qu'il ne prendra aucun paramètre, mais permettra tout de même d'instancier un objet, et vu que nous sommes perfectionnistes, nous allons y initialiser nos variables d'instance.
+
 ```java
-public class Ville {     
+public class Ville {
     //... Défintion Variable
-    //Constructeur par défaut  
-    public Ville(){    
-        System.out.println("Création d'une ville !");          
-        nomVille = "Inconnu";    
-        nomPays = "Inconnu";    
-        nbreHabitants = 0;  
-    } 
+    //Constructeur par défaut
+    public Ville(){
+        System.out.println("Création d'une ville !");
+        nomVille = "Inconnu";
+        nomPays = "Inconnu";
+        nbreHabitants = 0;
+    }
 }
 
 ```
 
-Vérifions que l'instanciation s’effectue comme il faut. Allons dans notre classe contenant la méthode main et instancions un objet Ville. Je suppose que vous avez deviné que le type de notre objet sera Ville ! 
+Vérifions que l'instanciation s’effectue comme il faut. Allons dans notre classe contenant la méthode main et instancions un objet Ville. Je suppose que vous avez deviné que le type de notre objet sera Ville !
+
 ```java
 public class MainProgram {
     static void main(String[] args) {
@@ -62,21 +73,23 @@ public class MainProgram {
 Exécuter le et regarder si `Création d'une ville` apparaît bien.
 
 Maintenant, nous devons mettre des données dans notre objet, ceci afin de pouvoir commencer à travailler… Le but sera de parvenir à une déclaration d'objet se faisant comme ceci :
+
 ```java
 Ville Tana = new Ville("Tananarive", 1000000, "Madagascar");
 ```
 
 Vous avez remarqué qu'ici, les paramètres sont renseignés : eh bien il suffit de créer une méthode qui récupère ces paramètres et initialise les variables de notre objet, ce qui achèvera notre constructeur d'initialisation.
-Voici le constructeur de notre objet Ville, celui qui permet d'avoir des objets avec des paramètres différents : 
+Voici le constructeur de notre objet Ville, celui qui permet d'avoir des objets avec des paramètres différents :
+
 ```java
-public class Ville {     
-    // ... 
-    //Constructeur avec parametre  
-    public Ville(String _nomVille,String _nomPays,int _nbHabitants){    
-        System.out.println("Création d'une ville mais avec parametre!");          
-        nomVille = _nomVille;    
-        nomPays = _nomPays;    
-        nbreHabitants = _nbHabitants;  
-    } 
+public class Ville {
+    // ...
+    //Constructeur avec parametre
+    public Ville(String _nomVille,String _nomPays,int _nbHabitants){
+        System.out.println("Création d'une ville mais avec parametre!");
+        nomVille = _nomVille;
+        nomPays = _nomPays;
+        nbreHabitants = _nbHabitants;
+    }
 }
 ```

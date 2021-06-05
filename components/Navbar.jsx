@@ -31,6 +31,7 @@ const _NavLink = (
       ref={ref}
       mx="1.5"
       as="a"
+      bg={useColorModeValue("whiteAlpha.50", "blackAlpha.50")}
       variant={variant}
       colorScheme={colorScheme}
       {...rest}
@@ -100,7 +101,7 @@ export const Navbar = ({ children, brand, mobileContent, w = "full" }) => {
   const { toggleColorMode } = useColorMode();
   return (
     <>
-      <Box zIndex="1" position="fixed" boxShadow="sm" w={w}>
+      <Box as="nav" zIndex="1" position="fixed" boxShadow="sm" w={w}>
         <Flex
           ref={navRef}
           width="full"
@@ -109,7 +110,10 @@ export const Navbar = ({ children, brand, mobileContent, w = "full" }) => {
           alignItems="center"
           justifyContent="space-between"
           flexDirection="row"
-          bg={useColorModeValue("whiteAlpha.100", "blackAlpha.100")}
+          background={useColorModeValue(
+            "radial-gradient( circle farthest-corner at 1.3% 2.8%, rgb(255, 255, 255,.5) 0%, rgb(237, 237 ,237,.5) 100.2%)",
+            "radial-gradient( circle farthest-corner at 1.3% 2.8%, rgb(26 ,32 ,44, .8) 0%, rgb(23, 25, 35, .8) 100.2%)"
+          )}
           sx={{ backdropFilter: "blur(10px)" }}
         >
           <Flex flex={1} flexShrink={"initial"} mr="6">
@@ -119,6 +123,7 @@ export const Navbar = ({ children, brand, mobileContent, w = "full" }) => {
             {children}
             <IconButton
               icon={useColorModeValue(<BiMoon />, <BiSun />)}
+              bg={useColorModeValue("blackAlpha.200", "whiteAlpha.200")}
               aria-label="colormode-btn"
               onClick={toggleColorMode}
             />
