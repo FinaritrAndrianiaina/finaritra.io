@@ -1,17 +1,9 @@
 {
-  "name": "devii",
+  "name": "finaritra.io fork",
   "version": "0.5.0",
   "description": "A Medium inspired dev blog starter for Next.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/colinhacks/devii"
-  },
-  "author": "Colin McDonnell <colin@colinhacks.com>",
+  "author": "Finaritra ANDRIANIAINA <finaritrandrianiaina@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/colinhacks/devii/issues"
-  },
-  "homepage": "https://github.com/colinhacks/devii",
   "tags": [
     "blog template",
     "react",
