@@ -1,23 +1,20 @@
 import {
-  Image,
   Box,
-  Center,
   Heading,
   Text,
   Stack,
   Avatar,
   useColorModeValue,
-  HStack,
-  Badge,
   LinkBox,
   LinkOverlay,
   VStack,
+  Link,
 } from "@chakra-ui/react";
 import { format } from "fecha";
 import React from "react";
 import { PostInfo } from "../blog.type";
 import NextLink from "next/link";
-import Link from "next/link";
+import { Tags } from "./Tags";
 
 export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
   return (
@@ -26,55 +23,55 @@ export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
       transition="ease .3s"
       as="article"
       display="flex"
+      w="full"
       flexDirection="column"
       justifyContent="space-between"
-      height="550px"
-      maxW={"600px"}
-      w={"full"}
       bg={useColorModeValue("white", "gray.900")}
+      borderColor={useColorModeValue("gray.300", "gray.500")}
+      borderWidth="thin"
       boxShadow="md"
       rounded={"md"}
       overflow={"hidden"}
     >
-      <VStack w="full">
-        <Box
-          h={"210px"}
-          bg={"gray.100"}
-          w="full"
-          mb={6}
-          backgroundPosition="center"
-          backgroundImage={`url(${props.bannerPhoto})`}
-          backgroundSize="cover"
-          pos={"relative"}
-        />
-        <Stack p="5" w="full">
-          <HStack textTransform={"uppercase"} fontWeight={800}>
-            {props.tags.map((v, index) => (
-              <Badge variant="outline" key={index + "tags"}>
-                {v}
-              </Badge>
-            ))}
-          </HStack>
-          <Heading
-            color={useColorModeValue("gray.700", "white")}
-            fontSize={"2xl"}
-            fontFamily={"body"}
-          >
-            <NextLink href={props.canonicalUrl} passHref>
-              <LinkOverlay>{props.title}</LinkOverlay>
-            </NextLink>
-          </Heading>
-          <Text color={"gray.500"}>{props.description}</Text>
-        </Stack>
-      </VStack>
-      <Stack p="5" direction={"row"} spacing={4} align={"center"}>
-        <Avatar src={props.authorPhoto} name={props.author} />
-        <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-          <Text fontWeight={600}>{props.author}</Text>
-          <Text color={"gray.500"}>
-            {format(new Date(props.datePublished), "dddd MMMM D, YYYY")}
-          </Text>
-        </Stack>
+      <Stack flexDirection={["column", "row"]} w="full">
+        {props.bannerPhoto && (
+          <Box
+            bg={"gray.100"}
+            w={["full", "50%"]}
+            h="200px"
+            backgroundPosition="center"
+            backgroundImage={`url(${props.bannerPhoto})`}
+            backgroundSize="cover"
+            pos={"relative"}
+          />
+        )}
+        <VStack p="5" w="full">
+          <VStack justifyContent="center" spacing="2" w="full">
+            <Tags tags={props.tags} />
+            <Heading
+              w="full"
+              color={useColorModeValue("gray.700", "white")}
+              fontSize={"2xl"}
+              fontFamily={"body"}
+            >
+              <NextLink href={props.canonicalUrl} passHref>
+                <LinkOverlay as={Link}>{props.title}</LinkOverlay>
+              </NextLink>
+            </Heading>
+            <Text w="full" color={"gray.500"}>
+              {props.description}
+            </Text>
+          </VStack>
+          <Stack direction={"row"} spacing={4} w="full">
+            <Avatar src={props.authorPhoto} name={props.author} />
+            <Stack direction={"column"} spacing={0} fontSize={"sm"}>
+              <Text fontWeight={600}>{props.author}</Text>
+              <Text color={"gray.500"}>
+                {format(new Date(props.datePublished), "dddd MMMM D, YYYY")}
+              </Text>
+            </Stack>
+          </Stack>
+        </VStack>
       </Stack>
     </LinkBox>
   );
