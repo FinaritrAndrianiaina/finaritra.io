@@ -1,5 +1,4 @@
 import React from "react";
-import glob from "glob";
 import { loadPost } from "../../loader";
 import { serialize } from "next-mdx-remote/serialize";
 import Markdown from "../../components/Markdown";
@@ -8,7 +7,6 @@ import {
   Center,
   Container,
   Divider,
-  Flex,
   Heading,
   Stack,
   Text,

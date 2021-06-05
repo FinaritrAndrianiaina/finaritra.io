@@ -1,11 +1,4 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Flex,
-  Heading,
-  Text,
-} from "@chakra-ui/layout";
+import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/layout";
 import React from "react";
 import { RepositoryCardList, UserCard } from "../components/Profile";
 

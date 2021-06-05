@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Heading,
   Avatar,
@@ -6,29 +6,23 @@ import {
   Badge,
   Text,
   Stack,
-  Button,
   useColorModeValue,
-  Container,
   HStack,
   Flex,
   Stat,
   StatLabel,
   StatNumber,
   StatHelpText,
-  StatArrow,
   Icon,
   LinkBox,
   LinkOverlay,
   Link,
   VStack,
-  Grid,
-  Center,
 } from "@chakra-ui/react";
 import { ReposList, UserSchema } from "../github.type";
 import { BiBook, BiGitRepoForked, BiGroup, BiStar } from "react-icons/bi";
 import useSWR from "swr";
 import NextLink from "next/link";
-import { FaEye, FaPeopleCarry } from "react-icons/fa";
 
 export const UserCard = () => {
   const { data: userInfo } = useSWR<UserSchema, any>(

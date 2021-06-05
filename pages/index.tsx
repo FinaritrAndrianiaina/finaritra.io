@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React from "react";
 import { PostData, TimelineElement } from "../blog.type";
 import BlogCard from "../components/BlogCard";
 import Markdown from "../components/Markdown";

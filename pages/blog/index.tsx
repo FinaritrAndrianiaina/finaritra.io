@@ -7,7 +7,7 @@ import {
   VStack,
 } from "@chakra-ui/layout";
 import React from "react";
-import { PostData, PostInfo } from "../../blog.type";
+import { PostData } from "../../blog.type";
 import BlogCard from "../../components/BlogCard";
 import { loadBlogPosts } from "../../loader";
 
