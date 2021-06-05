@@ -9,7 +9,6 @@ export const loadMarkdownFile = async (path: string): Promise<RawFile> => {
 
 export const formatMD = (file: RawFile): PostData => {
   const { data, content } = matter(file.content);
-  console.log(`file.path`, file.path);
   if (!data.title) throw new Error(`Missing required field: title.`);
   if (!data.description && !data.subtitle)
     throw new Error(`Missing required field: description or subtitle.`);
