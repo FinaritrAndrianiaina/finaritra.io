@@ -119,7 +119,7 @@ const Home = (props: { introduction: any; posts: PostData[] }) => {
             </Box>
           ))}
         </Box>
-        <Heading my="5" mx="1">
+        <Heading my="5" mx={["0", "1"]}>
           Github
         </Heading>
         <Flex flexWrap="wrap">
