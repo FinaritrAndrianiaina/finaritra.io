@@ -16,7 +16,7 @@ import React, { useEffect } from "react";
 import { PostData, TimelineElement } from "../blog.type";
 import BlogCard from "../components/BlogCard";
 import Markdown from "../components/Markdown";
-import RepositoryCardList, { UserCard } from "../components/Profile";
+import { RepositoryCardList, UserCard } from "../components/Profile";
 import { loadBlogPosts, loadMarkdownFile } from "../loader";
 import { BiCheckCircle } from "react-icons/bi";
 import aboutme from "../about.me.json";

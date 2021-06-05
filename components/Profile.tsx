@@ -40,7 +40,6 @@ export const UserCard = () => {
       display="flex"
       h="full"
       flexDir="column"
-      w={"full"}
       bg={useColorModeValue("white", "gray.900")}
       boxShadow={"xl"}
       rounded={"lg"}
@@ -122,7 +121,8 @@ export const UserCard = () => {
           <HStack>
             <Icon as={BiBook} />
             <span>
-              <strong>{userInfo?.public_repos}</strong> repository
+              <strong>{userInfo?.public_repos}</strong> public repository
+              repository
             </span>
           </HStack>
         </VStack>
@@ -131,7 +131,7 @@ export const UserCard = () => {
   );
 };
 
-const RepositoryCardList = ({ limit = 0 }) => {
+export const RepositoryCardList = ({ limit = 0 }) => {
   const { data: userRepos } = useSWR<ReposList, any>(
     "https://api.github.com/users/FinaritrAndrianiaina/repos?type=owner&sort=updated&direction=desc&per_page=100&page=1"
   );
@@ -143,12 +143,13 @@ const RepositoryCardList = ({ limit = 0 }) => {
           .sort((b, a) => a.stargazers_count - b.stargazers_count)
           .map((v, index) => (
             <Stat
-              minW="335px"
+              minW="300px"
               as={LinkBox}
               key={index + "-repos"}
               p="5"
+              mx={["0", "2"]}
+              my="1"
               borderWidth="thin"
-              m="1"
               minH="100px"
               rounded="13px"
             >
@@ -183,5 +184,3 @@ const RepositoryCardList = ({ limit = 0 }) => {
     </Flex>
   );
 };
-
-export default RepositoryCardList;
