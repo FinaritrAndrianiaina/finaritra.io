@@ -1,6 +1,7 @@
 import React from "react";
 import { loadPost } from "../../loader";
 import { serialize } from "next-mdx-remote/serialize";
+import glob from "glob";
 import Markdown from "../../components/Markdown";
 import {
   Box,
@@ -67,10 +68,14 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  return {
-    paths: [],
-    fallback: "unstable_blocking",
-  };
+  const blogs = glob.sync("./md/blog/*.mdx");
+  const slugs = blogs.map((file: string) => {
+    const popped = file.split("/").pop();
+    if (!popped) throw new Error(`Invalid blog path: ${file}`);
+    return popped.slice(0, -4).trim();
+  });
+  const paths = slugs.map((slug) => `/blog/${slug}`);
+  return { paths, fallback: "unstable_blocking" };
 };
 
 export const getStaticProps = async ({ params }: any) => {
