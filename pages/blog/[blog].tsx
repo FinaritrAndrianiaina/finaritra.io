@@ -43,7 +43,7 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
       ) : (
         <Box width="full" height="80px" />
       )}
-      <Container maxW="container.lg">
+      <Container as="article" maxW="container.lg">
         <VStack w="full" mt="5" spacing="5">
           <Box w="full">
             <Heading size="lg">{meta.title}</Heading>
