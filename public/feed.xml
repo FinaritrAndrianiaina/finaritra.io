@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Finaritra Andrianiaina]]></title>
+        <description><![CDATA[Finaritra Andrianiaina]]></description>
+        <link>https://finaritra.vercel.app</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 07 Jun 2021 10:48:37 GMT</lastBuildDate>
+        <atom:link href="https://finaritra.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[ORM avec C# et SQL Server 2]]></title>
+            <link>https://finaritra.vercel.app/blog/ef_csharp_installation</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/ef_csharp_installation</guid>
+        </item>
+        <item>
+            <title><![CDATA[ORM avec C# et SQL Server]]></title>
+            <link>https://finaritra.vercel.app/blog/ef_csharp_intro</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/ef_csharp_intro</guid>
+        </item>
+        <item>
+            <title><![CDATA[Guide pour l'ajout d'article]]></title>
+            <link>https://finaritra.vercel.app/blog/guide</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/guide</guid>
+        </item>
+        <item>
+            <title><![CDATA[Poo]]></title>
+            <link>https://finaritra.vercel.app/blog/poo</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/poo</guid>
+        </item>
+        <item>
+            <title><![CDATA[Choosing a tech stack for my personal dev blog in 2020]]></title>
+            <link>https://finaritra.vercel.app/blog/the-ultimate-tech-stack</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/the-ultimate-tech-stack</guid>
+        </item>
+    </channel>
+</rss>
