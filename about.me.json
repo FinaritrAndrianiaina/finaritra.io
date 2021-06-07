@@ -1,11 +1,24 @@
 {
   "timeline": [
     {
-      "date": 2001,
+      "date": 2016,
       "events": [
         {
-          "title": "born",
-          "descritption": "So everything begins here!!"
+          "title": "Entrée à l'université",
+          "description": "Aprés le Bacc et quelques notions de programmation, j'ai décidé de suivre un parcours en Eléctronique et Système informatique "
+        },
+        {
+          "title": "Premier pas dans la programmation 💻",
+          "description": "J'ai commencé à programmer en terminale et commencer à apprendre Javascript "
+        }
+      ]
+    },
+    {
+      "date": 2005,
+      "events": [
+        {
+          "title": "Mes premiers pas avec un ordinateur 🎮",
+          "description": "👀"
         }
       ]
     },
@@ -13,8 +26,8 @@
       "date": 2001,
       "events": [
         {
-          "title": "born",
-          "descritption": "So everything begins here!!"
+          "title": "Naissance 👶🍼",
+          "description": "Tout à commencer ici 🔥!!!"
         }
       ]
     }

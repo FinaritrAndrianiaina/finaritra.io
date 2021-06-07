@@ -11,7 +11,7 @@ export const defaultSeoData: NextSeoProps = {
     site_name: "Finaritra Andrianiaina",
     images: [
       {
-        url: "https://finaritrandrianiaina.vercel.app/img/og.jpeg",
+        url: "https://finaritra.vercel.app/img/og.jpeg",
         width: 1024,
         alt: "description-img",
       },

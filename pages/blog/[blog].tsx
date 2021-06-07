@@ -18,6 +18,7 @@ import { GetStaticPaths } from "next";
 import { Avatar } from "@chakra-ui/avatar";
 import { format } from "fecha";
 import { Tags } from "../../components/Tags";
+import { BlogJsonLd, NextSeo } from "next-seo";
 
 function Post(props: { meta: PostInfo; post: any; error: boolean }) {
   const { post, meta, error } = props;
@@ -43,6 +44,34 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
       ) : (
         <Box width="full" height="80px" />
       )}
+      <NextSeo
+        title={meta.title}
+        description={meta.description}
+        openGraph={{
+          title: meta.title,
+          description: meta.description,
+          article: {
+            authors: [meta.author],
+            publishedTime: new Date(meta.datePublished).toDateString(),
+            tags: meta.tags,
+          },
+          images: [
+            {
+              url: meta.bannerPhoto,
+            },
+          ],
+        }}
+        canonical={meta.canonicalUrl}
+      />
+      <BlogJsonLd
+        authorName={meta.author}
+        dateModified={new Date(meta.datePublished).toDateString()}
+        datePublished={new Date(meta.datePublished).toDateString()}
+        title={meta.title}
+        description={meta.description}
+        images={[meta.bannerPhoto]}
+        url={meta.canonicalUrl}
+      />
       <Container as="article" maxW="container.lg">
         <VStack w="full" mt="5" spacing="5">
           <Box w="full">

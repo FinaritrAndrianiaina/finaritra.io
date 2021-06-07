@@ -63,7 +63,7 @@ export default function BlogCard(props: React.PropsWithChildren<PostInfo>) {
             </Text>
           </VStack>
           <Stack direction={"row"} spacing={4} w="full">
-            <Avatar src={props.authorPhoto} name={props.author} />
+            <Avatar src={props.authorPhoto} size="sm" name={props.author} />
             <Stack direction={"column"} spacing={0} fontSize={"sm"}>
               <Text fontWeight={600}>{props.author}</Text>
               <Text color={"gray.500"}>

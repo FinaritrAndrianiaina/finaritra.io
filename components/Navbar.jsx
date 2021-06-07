@@ -29,7 +29,7 @@ const _NavLink = (
   <NextLink href={href}>
     <Button
       ref={ref}
-      mx="1.5"
+      minW="150px"
       as="a"
       bg={useColorModeValue("whiteAlpha.50", "blackAlpha.50")}
       variant={variant}
