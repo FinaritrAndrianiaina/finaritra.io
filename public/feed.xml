@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Finaritra Andrianiaina]]></title>
+        <description><![CDATA[Finaritra Andrianiaina]]></description>
+        <link>https://finaritra.vercel.app</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 07 Jun 2021 11:25:41 GMT</lastBuildDate>
+        <atom:link href="https://finaritra.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[ORM avec C# et SQL Server]]></title>
+            <description><![CDATA[Installation de EntityFrameworkCore]]></description>
+            <link>https://finaritra.vercel.app/blog/ef_csharp_intro</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/ef_csharp_intro</guid>
+            <category><![CDATA[C#]]></category>
+            <category><![CDATA[SQL]]></category>
+            <category><![CDATA[Dotnet]]></category>
+            <dc:creator><![CDATA[Finaritra ANDRIANIAINA]]></dc:creator>
+            <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ORM avec C# et SQL Server 2]]></title>
+            <description><![CDATA[Installation de EntityFrameworkCore]]></description>
+            <link>https://finaritra.vercel.app/blog/ef_csharp_installation</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/ef_csharp_installation</guid>
+            <category><![CDATA[Devii]]></category>
+            <category><![CDATA[Blogs]]></category>
+            <dc:creator><![CDATA[Finaritr ANDRIANIAINA]]></dc:creator>
+            <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Guide pour l'ajout d'article]]></title>
+            <description><![CDATA[Ajouter des articles ici est super facile]]></description>
+            <link>https://finaritra.vercel.app/blog/guide</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/guide</guid>
+            <category><![CDATA[Blog]]></category>
+            <category><![CDATA[Mdx]]></category>
+            <category><![CDATA[Next.js]]></category>
+            <dc:creator><![CDATA[Finaritra ANDRIANIAINA]]></dc:creator>
+            <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Poo]]></title>
+            <description><![CDATA[Qu'est-ce que la poo?]]></description>
+            <link>https://finaritra.vercel.app/blog/poo</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/poo</guid>
+            <category><![CDATA[JAVA]]></category>
+            <category><![CDATA[POO]]></category>
+            <category><![CDATA[Dev]]></category>
+            <dc:creator><![CDATA[Finaritra ANDRIANIAINA]]></dc:creator>
+            <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Choosing a tech stack for my personal dev blog in 2020]]></title>
+            <description><![CDATA[Devii is a starter kit for building a personal website with the best tools 2020 has to offer.]]></description>
+            <link>https://finaritra.vercel.app/blog/the-ultimate-tech-stack</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/the-ultimate-tech-stack</guid>
+            <category><![CDATA[Static Site Generators]]></category>
+            <category><![CDATA[React]]></category>
+            <category><![CDATA[Next.js]]></category>
+            <dc:creator><![CDATA[Colin McDonnell]]></dc:creator>
+            <pubDate>Tue, 26 May 2020 03:18:56 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

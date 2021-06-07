@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://finaritra.vercel.app/aboutme</loc>
+  </url>
+
+  <url>
+    <loc>https://finaritra.vercel.app</loc>
+  </url>
+
+  <url>
+    <loc>https://finaritra.vercel.appmd/blog/ef_csharp_installation</loc>
+  </url>
+
+  <url>
+    <loc>https://finaritra.vercel.appmd/blog/ef_csharp_intro</loc>
+  </url>
+
+  <url>
+    <loc>https://finaritra.vercel.appmd/blog/poo</loc>
+  </url>
+
+  <url>
+    <loc>https://finaritra.vercel.appmd/blog/guide</loc>
+  </url>
+
+  <url>
+    <loc>https://finaritra.vercel.appmd/blog/the-ultimate-tech-stack</loc>
+  </url>
+</urlset>
