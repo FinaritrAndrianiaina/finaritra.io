@@ -1,6 +1,7 @@
 import React from "react";
 import { loadPost } from "../../loader";
 import { serialize } from "next-mdx-remote/serialize";
+import glob from "glob";
 import Markdown from "../../components/Markdown";
 import {
   Box,
@@ -17,6 +18,7 @@ import { GetStaticPaths } from "next";
 import { Avatar } from "@chakra-ui/avatar";
 import { format } from "fecha";
 import { Tags } from "../../components/Tags";
+import { BlogJsonLd, NextSeo } from "next-seo";
 
 function Post(props: { meta: PostInfo; post: any; error: boolean }) {
   const { post, meta, error } = props;
@@ -42,7 +44,35 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
       ) : (
         <Box width="full" height="80px" />
       )}
-      <Container maxW="container.lg">
+      <NextSeo
+        title={meta.title}
+        description={meta.description}
+        openGraph={{
+          title: meta.title,
+          description: meta.description,
+          article: {
+            authors: [meta.author],
+            publishedTime: new Date(meta.datePublished).toDateString(),
+            tags: meta.tags,
+          },
+          images: [
+            {
+              url: meta.bannerPhoto,
+            },
+          ],
+        }}
+        canonical={meta.canonicalUrl}
+      />
+      <BlogJsonLd
+        authorName={meta.author}
+        dateModified={new Date(meta.datePublished).toDateString()}
+        datePublished={new Date(meta.datePublished).toDateString()}
+        title={meta.title}
+        description={meta.description}
+        images={[meta.bannerPhoto]}
+        url={meta.canonicalUrl}
+      />
+      <Container as="article" maxW="container.lg">
         <VStack w="full" mt="5" spacing="5">
           <Box w="full">
             <Heading size="lg">{meta.title}</Heading>
@@ -67,10 +97,14 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  return {
-    paths: [],
-    fallback: "unstable_blocking",
-  };
+  const blogs = glob.sync("./md/blog/*.mdx");
+  const slugs = blogs.map((file: string) => {
+    const popped = file.split("/").pop();
+    if (!popped) throw new Error(`Invalid blog path: ${file}`);
+    return popped.slice(0, -4).trim();
+  });
+  const paths = slugs.map((slug) => `/blog/${slug}`);
+  return { paths, fallback: "unstable_blocking" };
 };
 
 export const getStaticProps = async ({ params }: any) => {

@@ -134,6 +134,7 @@ export const RepositoryCardList = ({ limit = 0 }) => {
       <Flex flexWrap="wrap" w="full">
         {userRepos
           ?.slice(0, limit === 0 ? userRepos.length : limit)
+          .filter((repo) => !repo.fork)
           .sort((b, a) => a.stargazers_count - b.stargazers_count)
           .map((v, index) => (
             <Stat

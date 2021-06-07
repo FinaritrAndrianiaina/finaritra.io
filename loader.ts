@@ -27,7 +27,7 @@ export const formatMD = (file: RawFile): PostData => {
     canonicalUrl: `/${file.path.split(".")[0]}`,
   };
 
-  return { meta, content };
+  return { meta, content, path: file.path };
 };
 
 export const loadMarkdownFiles = async (path: string): Promise<RawFile[]> => {
