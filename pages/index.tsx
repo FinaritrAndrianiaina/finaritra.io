@@ -8,6 +8,7 @@ import {
   Icon,
   List,
   ListItem,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import { serialize } from "next-mdx-remote/serialize";
@@ -122,15 +123,15 @@ const Home = (props: { introduction: any; posts: PostData[] }) => {
         <Heading my="5" mx={["0", "1"]}>
           Github
         </Heading>
-        <Flex flexWrap="wrap">
+        <Stack direction={["column", "row"]} spacing={["0", 5]} flexWrap="wrap">
           <UserCard />
-          <Box w="full">
+          <Box w={["full", "50%"]}>
             <Heading py="5" size="md">
               Popular repository
             </Heading>
             <RepositoryCardList limit={4} />
           </Box>
-        </Flex>
+        </Stack>
       </Container>
     </>
   );
