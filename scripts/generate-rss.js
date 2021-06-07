@@ -2,7 +2,6 @@ const { promises: fs } = require("fs");
 const path = require("path");
 const RSS = require("rss");
 const matter = require("gray-matter");
-const { loadBlogPosts } = require("../loader");
 
 async function generate() {
   const feed = new RSS({
@@ -11,17 +10,21 @@ async function generate() {
     feed_url: "https://finaritra.vercel.app/feed.xml",
   });
 
-  const posts = await loadBlogPosts();
+  const posts = await fs.readdir(path.join(__dirname, "..", "md", "blog"));
 
   await Promise.all(
-    posts.map((post) => {
+    posts.map(async (name) => {
+      const content = await fs.readFile(
+        path.join(__dirname, "..", "md", "blog", name)
+      );
+      const meta = matter(content).data;
       feed.item({
-        title: post.meta.title,
-        url:
-          "https://finaritra.vercel.app/blog/" +
-          post.path.replace(/\.mdx?/, ""),
-        date: post.meta.datePublished,
-        description: post.meta.description,
+        author: meta.author,
+        categories: meta.tags,
+        title: meta.title,
+        url: "https://finaritra.vercel.app/blog/" + name.replace(/\.mdx?/, ""),
+        date: meta.datePublished,
+        description: meta.description,
       });
     })
   );
