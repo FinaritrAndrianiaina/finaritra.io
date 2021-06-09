@@ -11,6 +11,7 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Heading,
+  HStack,
   Icon,
   IconButton,
   List,
@@ -18,6 +19,7 @@ import {
   ListItem,
   Spinner,
   Switch,
+  Text,
   useColorMode,
   useColorModeValue,
   useDisclosure,
@@ -31,6 +33,7 @@ import { SWRConfig } from "swr";
 import { DefaultSeo } from "next-seo";
 import { defaultSeoData } from "../globals";
 import { FaHatWizard, FaHome, FaRegNewspaper } from "react-icons/fa";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 
 const Loading = () => {
   const router = useRouter();
@@ -70,6 +73,23 @@ const SwitchCL = () => {
   const { toggleColorMode } = useColorMode();
   return <Switch onChange={toggleColorMode} />;
 };
+const AnimatedHeading = motion(Heading);
+
+const Animation = () => {
+  const { scrollYProgress } = useViewportScroll();
+  const x = useTransform(scrollYProgress, [0, 0.3, 1], [0, -10, -15]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [1, 0.1, 0]);
+  return (
+    <AnimatedHeading
+      initial={{ opacity: 0, x: -150 }}
+      animate={{ opacity: 1, x: 0 }}
+      style={{ x, opacity }}
+    >
+      inaritra
+    </AnimatedHeading>
+  );
+};
+
 const App: React.FC = ({ Component, pageProps }: any) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   return (
@@ -86,7 +106,14 @@ const App: React.FC = ({ Component, pageProps }: any) => {
               aria-label="menu"
             />
           }
-          brand={<Heading>Blog</Heading>}
+          brand={
+            <>
+              <HStack spacing="0">
+                <Heading>F</Heading>
+                <Animation />
+              </HStack>
+            </>
+          }
         >
           <NavLink leftIcon={<Icon color="green.500" as={FaHome} />} href="/">
             Acceuil
