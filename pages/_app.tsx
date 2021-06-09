@@ -19,14 +19,13 @@ import {
   ListItem,
   Spinner,
   Switch,
-  Text,
   useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Navbar, NavLink } from "../components/Navbar";
-import { BiHome, BiMenu, BiNews } from "react-icons/bi";
+import { BiMenu, BiNews } from "react-icons/bi";
 import { Footer } from "../components/Footer";
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
