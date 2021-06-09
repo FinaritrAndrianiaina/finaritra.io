@@ -2,11 +2,25 @@ import {
   Center,
   chakra,
   ChakraProvider,
+  Divider,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
   Heading,
   Icon,
   IconButton,
+  List,
+  ListIcon,
+  ListItem,
   Spinner,
+  Switch,
+  useColorMode,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Navbar, NavLink } from "../components/Navbar";
@@ -16,7 +30,7 @@ import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 import { DefaultSeo } from "next-seo";
 import { defaultSeoData } from "../globals";
-import { FaHatWizard, FaHome } from "react-icons/fa";
+import { FaHatWizard, FaHome, FaRegNewspaper } from "react-icons/fa";
 
 const Loading = () => {
   const router = useRouter();
@@ -52,8 +66,12 @@ const Loading = () => {
     )
   );
 };
-
+const SwitchCL = () => {
+  const { toggleColorMode } = useColorMode();
+  return <Switch onChange={toggleColorMode} />;
+};
 const App: React.FC = ({ Component, pageProps }: any) => {
+  const { isOpen, onToggle, onClose } = useDisclosure();
   return (
     <>
       <DefaultSeo {...defaultSeoData} />
@@ -61,7 +79,13 @@ const App: React.FC = ({ Component, pageProps }: any) => {
         <Loading />
 
         <Navbar
-          mobileContent={<IconButton icon={<BiMenu />} aria-label="menu" />}
+          mobileContent={
+            <IconButton
+              onClick={onToggle}
+              icon={<BiMenu />}
+              aria-label="menu"
+            />
+          }
           brand={<Heading>Blog</Heading>}
         >
           <NavLink leftIcon={<Icon color="green.500" as={FaHome} />} href="/">
@@ -80,6 +104,37 @@ const App: React.FC = ({ Component, pageProps }: any) => {
             Blog
           </NavLink>
         </Navbar>
+        <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+          <DrawerOverlay>
+            <DrawerContent>
+              <DrawerHeader>
+                <Heading>F.</Heading>
+                <DrawerCloseButton />
+              </DrawerHeader>
+              <Divider />
+              <DrawerBody>
+                <List spacing="2">
+                  <ListItem as={NavLink} w="full" href="/">
+                    <ListIcon as={FaHome} color="green.500" />
+                    Home
+                  </ListItem>
+                  <ListItem as={NavLink} w="full" href="/aboutme">
+                    <ListIcon as={FaHatWizard} color="blue.400" />
+                    Me
+                  </ListItem>
+                  <ListItem as={NavLink} w="full" href="/blog">
+                    <ListIcon color="facebook.500" as={FaRegNewspaper} />
+                    Blog
+                  </ListItem>
+                </List>
+              </DrawerBody>
+              <Divider />
+              <DrawerFooter>
+                <SwitchCL />
+              </DrawerFooter>
+            </DrawerContent>
+          </DrawerOverlay>
+        </Drawer>
         <SWRConfig
           value={{ fetcher: (url) => fetch(url).then((data) => data.json()) }}
         >
