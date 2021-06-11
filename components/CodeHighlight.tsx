@@ -1,13 +1,13 @@
 import React from "react";
 import tomorrow from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
-import { PrismLight, PrismAsyncLight } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import gql from "react-syntax-highlighter/dist/cjs/languages/prism/graphql";
 import { Heading, HStack, VStack } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { useClipboard } from "@chakra-ui/hooks";
 import { CopyIcon } from "@chakra-ui/icons";
 
-const SyntaxHighlighter =
-  typeof window === "undefined" ? PrismLight : PrismAsyncLight;
+SyntaxHighlighter.registerLanguage("prisma", gql);
 
 const CodeHighlight: React.FC = (props: any) => {
   const { hasCopied, onCopy } = useClipboard(props.children);
@@ -40,7 +40,16 @@ const CodeHighlight: React.FC = (props: any) => {
         style={tomorrow}
         className={"prestyle"}
         showLineNumbers
-        language={(language === "ts" ? "typescript" : language) || "typescript"}
+        language={(function (): string {
+          switch (language) {
+            case "js":
+              return "javascript";
+            case "prisma":
+              return "graphql";
+            default:
+              return "bash";
+          }
+        })()}
       >
         {props.children}
       </SyntaxHighlighter>
