@@ -7,19 +7,154 @@ author: Finaritra ANDRIANIAINA
 size: contain
 bannerPhoto: https://www.prisma.io/images/home-migrate.svg
 tags:
-  - JAVA
-  - POO
-  - Dev
+  - Prisma
+  - Base de donnée
+  - NODEJS
 authorPhoto: /img/profile.webp
 ---
 
-### C'est quoi Prisma
+## Qu'est-ce que Prisma?
+
+Prisma est une nouvelle génération d'ORM [open source](https://github.com/prisma/prisma). Elle est composée de:
+
+- **Prisma Client**: Query builder auto-génerée et typée avec Node.js & TypeScript
+- **Prisma Migrate**: Sytéme de migration
+- **Prisma Studio**: Interface pour gérer les base de donnée
+
+Prisma Client peut être utilisée sur _tous_ les projets Node.js ou projet TypeScript backend ( impliquant les micorservices et applications serverless). Cela peut être [REST API](), un [GraphQL API](), un gRPC API, ou autres qui nécessitent des base de donnée.
+
+<Center>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/EEDGwLB55bI"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</Center>
+
+## Comment Prisma marche?
+
+### Prisma Schema
+
+Tous les projets prisma nécessitent un [fichier schéma Prisma](). Ce fichier Primsa permet aux développpeurs de définir leur _modèle d'application_ d'une manière intuitive. Elle définit aussi la base de donnée à connecter et le type de _generator_:
 
 ```prisma
-datasource db{
-    provider = "sqllite"
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
-type User {
-  id: ID! @id
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User?   @relation(fields:  [authorId], references: [id])
+  authorId  Int?
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
 }
 ```
+
+> **Note**: Le schema prisma a une très puissante fonctionnalité de modélisation de donnée. Par exemple, elle vous permet de définir des relations facilement qui vous permet de travailler facilement les relations avec le Prisma Clent.
+
+Dans ce schéma vous devez nécessairement définir trois information:
+
+- **Data source**: Spécifier les information de connection de votre base de donnée (grâce aux variables d'environnement)
+- **Generator**: Indiquer le client Prisma que vous voulez génerer
+- **Data model**: Definir votre modéle d'application
+
+### Accéder à votre base de donnée avec Prisma
+
+#### Génerer votre client Prisma
+
+La première étape est d'installer le package `@prisma/client`:
+
+```bash
+npm install @prisma/client
+```
+
+L'installation de `@prisma/client` invoque la commande `prisma generate`, qui lit votre schéma prisma et _genère_ le client prisma de votre code. Le client est [generée par défaute dans le fichier `node_modules/.prisma/client`]().
+
+Aprés chaque changement il faudra regenerer le client afin que les changements dans le schéma soit à jour:
+
+```bash
+prisma generate
+```
+
+#### Utiliser Primsa client
+
+Aprés que le client soit génerée vous pouvez l'importer dans votre code et l'utilisée.
+
+##### Importer et instancier un client prisma
+
+```ts
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+```
+
+```js
+const { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient();
+```
+
+##### Retrouver tous les utilisateurs:
+
+```ts
+// Run inside `async` function
+const allUsers = await prisma.user.findMany();
+```
+
+##### Inclure un relation
+
+```ts
+// Run inside `async` function
+const allUsers = await prisma.user.findMany({
+  include: { posts: true },
+});
+```
+
+##### Filtrer tous les `Post` contenant `"prisma"`
+
+```ts
+// Run inside `async` function
+const filteredPosts = await prisma.post.findMany({
+  where: {
+    OR: [
+      { title: { contains: "prisma" } },
+      { content: { contains: "prisma" } },
+    ],
+  },
+});
+```
+
+##### Créer un "User" avec un "Post"
+
+```ts
+// Run inside `async` function
+const user = await prisma.user.create({
+  data: {
+    name: "Alice",
+    email: "alice@prisma.io",
+    posts: {
+      create: { title: "Join us for Prisma Day 2020" },
+    },
+  },
+});
+```
+
+Apprendre plus sur la documentaion officielle [Prisma Client API reference]().
