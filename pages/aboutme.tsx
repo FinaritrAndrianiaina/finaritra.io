@@ -1,9 +1,12 @@
 import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/layout";
+import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 import React from "react";
+import Markdown from "../components/Markdown";
 import { RepositoryCardList, UserCard } from "../components/Profile";
+import { loadMarkdownFile } from "../loader";
 
-const AboutMe = () => {
+const AboutMe = ({ aboutme }: any) => {
   return (
     <>
       <NextSeo title="A propos de moi - finaritra.io" />
@@ -18,17 +21,7 @@ const AboutMe = () => {
         >
           <UserCard />
           <Box p={"5"} w="full">
-            <Heading mb="5">A propos de moi</Heading>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio rem
-              perspiciatis saepe, commodi in doloribus autem assumenda, aperiam
-              neque repudiandae animi reprehenderit enim at cupiditate fugit
-              rerum corporis ratione ad? Quis, ducimus nisi voluptatum facere
-              qui ipsa sint quae cupiditate ipsum vitae. Expedita aliquam optio
-              inventore. Nesciunt blanditiis assumenda tenetur animi quia ab
-              est, modi quibusdam porro iste numquam rem. Dolorum iusto sint ut
-              obcaecati.
-            </Text>
+            <Markdown md={aboutme} />
           </Box>
         </Flex>
         <Divider my="5" />
@@ -36,6 +29,12 @@ const AboutMe = () => {
       </Box>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const aboutme = await loadMarkdownFile("aboutme.mdx");
+  const data = await serialize(aboutme.content);
+  return { props: { aboutme: data } };
 };
 
 export default AboutMe;
