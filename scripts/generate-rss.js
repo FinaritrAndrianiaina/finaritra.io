@@ -18,14 +18,17 @@ async function generate() {
         path.join(__dirname, "..", "md", "blog", name)
       );
       const meta = matter(content).data;
-      feed.item({
-        author: meta.author,
-        categories: meta.tags,
-        title: meta.title,
-        url: "https://finaritra.vercel.app/blog/" + name.replace(/\.mdx?/, ""),
-        date: meta.datePublished,
-        description: meta.description,
-      });
+      if (meta.published) {
+        feed.item({
+          author: meta.author,
+          categories: meta.tags,
+          title: meta.title,
+          url:
+            "https://finaritra.vercel.app/blog/" + name.replace(/\.mdx?/, ""),
+          date: meta.datePublished,
+          description: meta.description,
+        });
+      }
     })
   );
 
