@@ -49,7 +49,7 @@ const CodeHighlight: React.FC = (props: any) => {
             case "prisma":
               return "graphql";
             default:
-              return "bash";
+              return language;
           }
         })()}
       >
