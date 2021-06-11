@@ -17,6 +17,7 @@ export const formatMD = (file: RawFile): PostData => {
 
   const meta: PostInfo = {
     title: data.title,
+    size: data.size || "cover",
     published: Boolean(data.published),
     datePublished: data.datePublished,
     description: data.description || data.subtitle,
@@ -52,5 +53,9 @@ export const loadBlogPosts = async (): Promise<PostData[]> => {
   )
     .map(formatMD)
     .filter((a) => a.meta.published)
-    .sort((a, b) => (b.meta.datePublished || 0) - (a.meta.datePublished || 0));
+    .sort(
+      (a, b) =>
+        Number(new Date(b.meta.datePublished)) -
+        Number(new Date(a.meta.datePublished))
+    );
 };

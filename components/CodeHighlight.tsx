@@ -42,6 +42,8 @@ const CodeHighlight: React.FC = (props: any) => {
         showLineNumbers
         language={(function (): string {
           switch (language) {
+            case "ts":
+              return "typescript";
             case "js":
               return "javascript";
             case "prisma":

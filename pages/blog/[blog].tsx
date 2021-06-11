@@ -25,7 +25,7 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
   if (error) {
     return (
       <>
-        <Center height="100vh">
+        <Center minH="100vh">
           <Heading>404 | Not found</Heading>
         </Center>
       </>
@@ -37,7 +37,7 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
         <Box
           width="full"
           height="310px"
-          backgroundSize="cover"
+          backgroundSize={meta.size}
           backgroundPosition="center"
           backgroundImage={`url(${meta.bannerPhoto})`}
         />
@@ -72,7 +72,7 @@ function Post(props: { meta: PostInfo; post: any; error: boolean }) {
         images={[meta.bannerPhoto]}
         url={meta.canonicalUrl}
       />
-      <Container as="article" maxW="container.lg">
+      <Container minH="100vh" as="article" maxW="container.lg">
         <VStack w="full" mt="5" spacing="5">
           <Box w="full">
             <Heading size="lg">{meta.title}</Heading>

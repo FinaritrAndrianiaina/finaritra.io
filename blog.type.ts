@@ -2,6 +2,7 @@ export type RawFile = { path: string; content: string };
 export type PostInfo = {
   title: string;
   published: boolean;
+  size: "cover" | "contain" | any;
   datePublished: number;
   description: string;
   author: string;
