@@ -37,8 +37,13 @@ const CodeHighlight: React.FC = (props: any) => {
         </Button>
       </HStack>
       <SyntaxHighlighter
+        customStyle={{
+          width: "100%",
+          marginTop: "0",
+          borderBottomLeftRadius: "13px",
+          borderBottomRightRadius: "13px",
+        }}
         style={tomorrow}
-        className={"prestyle"}
         showLineNumbers
         language={(function (): string {
           switch (language) {
