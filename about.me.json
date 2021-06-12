@@ -4,7 +4,7 @@
       "date": 2021,
       "events": [
         {
-          "title": "Commence un stage de trois mois dans une entreprise",
+          "title": "Commence un stage de trois mois dans une startup innovant dans les fin-tech",
           "description": "Je travaille sur la mise en place d'un système de paiment décentralisé sans frontière adapter pour l'Afrique ( Mai 2021 - Maintenant) "
         }
       ]
@@ -23,7 +23,7 @@
       "events": [
         {
           "title": "Membre de l'équipe Malgache de Robotique au FIRST Global Challenge 2019 Dubaï 🤖",
-          "description": "FIRST Global Challenge est une compétition internationale de robotique réunissant des jeunes venant plus de 192 pays à travers le monde afin d'initier les jeunes aux STEM (Science Technologies Education Mathematics). J'avais la résponsabilité de programmer et maintenir le programme JAVA du robot de l'équipe malgache."
+          "description": "FIRST Global Challenge est une compétition internationale de robotique réunissant des jeunes venant plus de 192 pays à travers le monde afin d'initier les jeunes aux <strong>STEM</strong> (Science Technologies Education Mathematics). J'avais la résponsabilité de programmer et maintenir le programme JAVA du robot de l'équipe malgache."
         },
         {
           "title": "Rejoins l'association STEM4GOOD ",
@@ -36,7 +36,7 @@
       "events": [
         {
           "title": "Entrée à l'université",
-          "description": "Aprés le Bacc et quelques notions de programmation, j'ai décidé de suivre un parcours en Eléctronique et Système informatique "
+          "description": "Aprés le Bacc et quelques notions de programmation, j'ai décidé de suivre un parcours en <kbd>Eléctronique et Système informatique</kbd> "
         }
       ]
     },
