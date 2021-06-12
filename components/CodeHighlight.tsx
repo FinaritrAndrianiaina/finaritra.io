@@ -1,6 +1,6 @@
 import React from "react";
 import tomorrow from "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import gql from "react-syntax-highlighter/dist/cjs/languages/prism/graphql";
 import { Heading, HStack, VStack } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";

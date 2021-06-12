@@ -4,8 +4,19 @@
         <description><![CDATA[Finaritra Andrianiaina]]></description>
         <link>https://finaritra.vercel.app</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 12 Jun 2021 05:32:13 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 12 Jun 2021 05:41:59 GMT</lastBuildDate>
         <atom:link href="https://finaritra.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Choosing a tech stack for my personal dev blog in 2020]]></title>
+            <description><![CDATA[Devii is a starter kit for building a personal website with the best tools 2020 has to offer.]]></description>
+            <link>https://finaritra.vercel.app/blog/the-ultimate-tech-stack</link>
+            <guid isPermaLink="true">https://finaritra.vercel.app/blog/the-ultimate-tech-stack</guid>
+            <category><![CDATA[Static Site Generators]]></category>
+            <category><![CDATA[React]]></category>
+            <category><![CDATA[Next.js]]></category>
+            <dc:creator><![CDATA[Colin McDonnell]]></dc:creator>
+            <pubDate>Tue, 26 May 2020 03:18:56 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Guide pour l'ajout d'article]]></title>
             <description><![CDATA[Ajouter des articles ici est super facile]]></description>
@@ -27,17 +38,6 @@
             <category><![CDATA[Dev]]></category>
             <dc:creator><![CDATA[Finaritra ANDRIANIAINA]]></dc:creator>
             <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Choosing a tech stack for my personal dev blog in 2020]]></title>
-            <description><![CDATA[Devii is a starter kit for building a personal website with the best tools 2020 has to offer.]]></description>
-            <link>https://finaritra.vercel.app/blog/the-ultimate-tech-stack</link>
-            <guid isPermaLink="true">https://finaritra.vercel.app/blog/the-ultimate-tech-stack</guid>
-            <category><![CDATA[Static Site Generators]]></category>
-            <category><![CDATA[React]]></category>
-            <category><![CDATA[Next.js]]></category>
-            <dc:creator><![CDATA[Colin McDonnell]]></dc:creator>
-            <pubDate>Tue, 26 May 2020 03:18:56 GMT</pubDate>
         </item>
     </channel>
 </rss>
