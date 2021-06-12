@@ -8,7 +8,7 @@ export const defaultSeoData: NextSeoProps = {
     description: "Gameur, Nodejs développeur, web-3.0 développeur et plus...",
     url: "https://finaritra.vercel.app",
     locale: "fr/FR",
-    site_name: "Finaritra Andrianiaina",
+    site_name: "finaritra.vercel.app",
     images: [
       {
         url: "https://finaritra.vercel.app/img/og.jpeg",
@@ -22,6 +22,16 @@ export const defaultSeoData: NextSeoProps = {
       gender: "male",
       username: "FinaritrAndrianiaina",
     },
+    article: {
+      authors: ["Finaritra ANDRIANIAINA"],
+      tags: ["Finaritra", "Developper", "Dévéloppeur", "React JS"],
+    },
+    type: "website",
+  },
+  twitter: {
+    cardType: "summary",
+    handle: "@finaritraio",
+    site: "finaritra.vercel.app",
   },
   canonical: "https://finaritra.vercel.app",
   defaultTitle: "Finaritra Andrianiaina - Developer",
