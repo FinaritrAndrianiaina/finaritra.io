@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/layout";
+import { Box, Divider, Flex } from "@chakra-ui/layout";
 import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 import React from "react";

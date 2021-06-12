@@ -14,13 +14,14 @@ import {
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import React from "react";
-import { PostData, TimelineElement } from "../blog.type";
+import { PostData, TimelineElement, Event } from "../blog.type";
 import BlogCard from "../components/BlogCard";
 import Markdown from "../components/Markdown";
 import { RepositoryCardList, UserCard } from "../components/Profile";
 import { loadBlogPosts, loadMarkdownFile } from "../loader";
 import { BiCheckCircle } from "react-icons/bi";
 import aboutme from "../about.me.json";
+import parse from "html-react-parser";
 
 const Header = () => {
   return (
@@ -56,7 +57,7 @@ const Timeline = ({ timelineItem }: { timelineItem: TimelineElement }) => {
         {timelineItem.date}
       </Heading>
       <List mt="1" mb="3" spacing="5">
-        {timelineItem.events.map((v: any, index: any) => (
+        {timelineItem.events.map((v: Event, index: any) => (
           <ListItem key={index + "events"}>
             <Flex>
               <Icon
@@ -69,7 +70,7 @@ const Timeline = ({ timelineItem }: { timelineItem: TimelineElement }) => {
                 <Heading mb="1" size="md">
                   {v.title}
                 </Heading>
-                <Text textAlign="justify">{v.description}</Text>
+                <Text textAlign="justify">{parse(v.description)}</Text>
               </Box>
             </Flex>
           </ListItem>
