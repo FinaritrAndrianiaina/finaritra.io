@@ -15,7 +15,6 @@ const CodeHighlight: React.FC = (props: any) => {
   return (
     <VStack w="full" align="start" spacing="0">
       <HStack
-        boxShadow="#252525 3px 11px 20px 0px"
         bg="gray.600"
         color="white"
         borderTopRadius="13px"
