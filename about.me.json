@@ -1,12 +1,48 @@
 {
   "timeline": [
     {
-      "date": 2016,
+      "date": 2021,
+      "events": [
+        {
+          "title": "Commence un stage de trois mois dans une entreprise",
+          "description": "Je travaille sur la mise en place d'un système de paiment décentralisé sans frontière adapter pour l'Afrique ( Mai 2021 - Maintenant) "
+        }
+      ]
+    },
+    {
+      "date": 2020,
+      "events": [
+        {
+          "title": "-----",
+          "description": "😷🤿. Normalement j'obtiens mon diplôme de license en Informatique mais devinez."
+        }
+      ]
+    },
+    {
+      "date": 2019,
+      "events": [
+        {
+          "title": "Membre de l'équipe Malgache de Robotique au FIRST Global Challenge 2019 Dubaï 🤖",
+          "description": "FIRST Global Challenge est une compétition internationale de robotique réunissant des jeunes venant plus de 192 pays à travers le monde afin d'initier les jeunes aux STEM (Science Technologies Education Mathematics). J'avais la résponsabilité de programmer et maintenir le programme JAVA du robot de l'équipe malgache."
+        },
+        {
+          "title": "Rejoins l'association STEM4GOOD ",
+          "description": "C'est une association oeuvrant dans la vulgarisation de la science et de la technologie à Madagascar."
+        }
+      ]
+    },
+    {
+      "date": 2017,
       "events": [
         {
           "title": "Entrée à l'université",
           "description": "Aprés le Bacc et quelques notions de programmation, j'ai décidé de suivre un parcours en Eléctronique et Système informatique "
-        },
+        }
+      ]
+    },
+    {
+      "date": 2016,
+      "events": [
         {
           "title": "Premier pas dans la programmation 💻",
           "description": "J'ai commencé à programmer en terminale et commencer à apprendre Javascript "
