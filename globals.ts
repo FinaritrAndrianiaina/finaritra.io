@@ -6,7 +6,8 @@ export const defaultSeoData: NextSeoProps = {
     "Nodejs & Typescript fullstack développeur, web-3.0 développeur et plus...",
   openGraph: {
     title: "Finaritra Haritiana Andrianiaina - Developer",
-    description: "Gameur, Nodejs développeur, web-3.0 développeur et plus...",
+    description:
+      "Nodejs & Typescript fullstack développeur, web-3.0 développeur et plus...",
     url: "https://finaritra.me",
     locale: "fr_FR",
     site_name: "finaritra.me",
