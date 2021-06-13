@@ -30,7 +30,7 @@ export const defaultSeoData: NextSeoProps = {
     type: "website",
   },
   twitter: {
-    cardType: "summary_large_card",
+    cardType: "summary_large_image",
     handle: "@finaritrame",
     site: "finaritra.me",
   },
