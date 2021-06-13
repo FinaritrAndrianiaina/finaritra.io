@@ -1,19 +1,20 @@
 import { NextSeoProps } from "next-seo";
 
 export const defaultSeoData: NextSeoProps = {
-  title: "Finaritra Andrianiaina - Developer",
-  description: "Gameur, Nodejs développeur, web-3.0 développeur et plus...",
+  title: "Finaritra Haritiana ANDRIANIAINA - Developer",
+  description:
+    "Nodejs & Typescript fullstack développeur, web-3.0 développeur et plus...",
   openGraph: {
-    title: "Finaritra Andrianiaina - Developer",
+    title: "Finaritra Haritiana Andrianiaina - Developer",
     description: "Gameur, Nodejs développeur, web-3.0 développeur et plus...",
     url: "https://finaritra.me",
-    locale: "fr/FR",
+    locale: "fr_FR",
     site_name: "finaritra.me",
     images: [
       {
         url: "https://finaritra.me/img/og.jpeg",
         width: 1024,
-        alt: "description-img",
+        alt: "[Finaritra Haritiana Andrianiaina Blog]",
       },
     ],
     profile: {
@@ -23,16 +24,16 @@ export const defaultSeoData: NextSeoProps = {
       username: "FinaritrAndrianiaina",
     },
     article: {
-      authors: ["Finaritra ANDRIANIAINA"],
+      authors: ["Finaritra Haritiana ANDRIANIAINA"],
       tags: ["Finaritra", "Developper", "Dévéloppeur", "React JS"],
     },
     type: "website",
   },
   twitter: {
-    cardType: "summary",
-    handle: "@finaritraio",
+    cardType: "summary_large_card",
+    handle: "@finaritrame",
     site: "finaritra.me",
   },
   canonical: "https://finaritra.me",
-  defaultTitle: "Finaritra Andrianiaina - Developer",
+  defaultTitle: "Finaritra Haritiana ANDRIANIAINA - Developer",
 };
