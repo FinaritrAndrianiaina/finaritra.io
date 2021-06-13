@@ -29,7 +29,7 @@ const prettier = require("prettier");
 
                 return `
                         <url>
-                            <loc>${`https://finaritra.vercel.app${route}`}</loc>
+                            <loc>${`https://finaritra.me${route}`}</loc>
                         </url>
                     `;
               })

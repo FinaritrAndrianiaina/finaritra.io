@@ -6,12 +6,12 @@ export const defaultSeoData: NextSeoProps = {
   openGraph: {
     title: "Finaritra Andrianiaina - Developer",
     description: "Gameur, Nodejs développeur, web-3.0 développeur et plus...",
-    url: "https://finaritra.vercel.app",
+    url: "https://finaritra.me",
     locale: "fr/FR",
-    site_name: "finaritra.vercel.app",
+    site_name: "finaritra.me",
     images: [
       {
-        url: "https://finaritra.vercel.app/img/og.jpeg",
+        url: "https://finaritra.me/img/og.jpeg",
         width: 1024,
         alt: "description-img",
       },
@@ -31,8 +31,8 @@ export const defaultSeoData: NextSeoProps = {
   twitter: {
     cardType: "summary",
     handle: "@finaritraio",
-    site: "finaritra.vercel.app",
+    site: "finaritra.me",
   },
-  canonical: "https://finaritra.vercel.app",
+  canonical: "https://finaritra.me",
   defaultTitle: "Finaritra Andrianiaina - Developer",
 };

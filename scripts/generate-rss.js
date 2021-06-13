@@ -6,8 +6,8 @@ const matter = require("gray-matter");
 async function generate() {
   const feed = new RSS({
     title: "Finaritra Andrianiaina",
-    site_url: "https://finaritra.vercel.app",
-    feed_url: "https://finaritra.vercel.app/feed.xml",
+    site_url: "https://finaritra.me",
+    feed_url: "https://finaritra.me/feed.xml",
   });
 
   const posts = await fs.readdir(path.join(__dirname, "..", "md", "blog"));
@@ -23,8 +23,7 @@ async function generate() {
           author: meta.author,
           categories: meta.tags,
           title: meta.title,
-          url:
-            "https://finaritra.vercel.app/blog/" + name.replace(/\.mdx?/, ""),
+          url: "https://finaritra.me/blog/" + name.replace(/\.mdx?/, ""),
           date: meta.datePublished,
           description: meta.description,
         });

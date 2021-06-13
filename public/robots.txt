@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://finaritra.vercel.app/sitemap.xml
+Sitemap: https://finaritra.me/sitemap.xml
