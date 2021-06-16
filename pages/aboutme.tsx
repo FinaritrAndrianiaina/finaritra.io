@@ -3,7 +3,8 @@ import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 import React from "react";
 import Markdown from "../components/Markdown";
-import { RepositoryCardList, UserCard } from "../components/Profile";
+import { UserCard } from "../components/Profile";
+import { RepositoryCardList } from "../components/RepositoryCardList";
 import { loadMarkdownFile } from "../loader";
 
 const AboutMe = ({ aboutme }: any) => {
