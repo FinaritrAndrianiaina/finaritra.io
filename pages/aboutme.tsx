@@ -1,11 +1,12 @@
-import { Box, Divider, Flex } from "@chakra-ui/layout";
+import { Box, Divider, Flex, VStack } from "@chakra-ui/layout";
 import { serialize } from "next-mdx-remote/serialize";
 import { NextSeo } from "next-seo";
 import React from "react";
 import Markdown from "../components/Markdown";
-import { UserCard } from "../components/Profile";
+import { Profile } from "../components/Profile";
 import { RepositoryCardList } from "../components/RepositoryCardList";
 import { loadMarkdownFile } from "../loader";
+import { UserInfo } from "../components/UserInfo";
 
 const AboutMe = ({ aboutme }: any) => {
   return (
@@ -20,7 +21,10 @@ const AboutMe = ({ aboutme }: any) => {
             "row",
           ]}
         >
-          <UserCard />
+          <VStack spacing="2">
+            <Profile />
+            <UserInfo />
+          </VStack>
           <Box p={"5"} w="full">
             <Markdown md={aboutme} />
           </Box>

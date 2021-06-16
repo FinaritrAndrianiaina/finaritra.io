@@ -19,18 +19,18 @@ import { BiBook, BiGroup } from "react-icons/bi";
 import useSWR from "swr";
 import NextLink from "next/link";
 
-export const UserCard = () => {
+export const Profile = () => {
   const { data: userInfo } = useSWR<UserSchema, any>(
     "https://api.github.com/users/FinaritrAndrianiaina"
   );
 
   return (
     <LinkBox
+      w="inherit"
       display="flex"
-      h="full"
       flexDir="column"
       bg={useColorModeValue("white", "gray.900")}
-      boxShadow={"xl"}
+      boxShadow={"md"}
       rounded={"lg"}
       p={6}
       textAlign={"center"}
