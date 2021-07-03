@@ -2,37 +2,37 @@
     <channel>
         <title><![CDATA[Finaritra Andrianiaina]]></title>
         <description><![CDATA[Finaritra Andrianiaina]]></description>
-        <link>https://finaritra.vercel.app</link>
+        <link>https://finaritra.me</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 12 Jun 2021 07:39:16 GMT</lastBuildDate>
-        <atom:link href="https://finaritra.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Wed, 30 Jun 2021 13:14:08 GMT</lastBuildDate>
+        <atom:link href="https://finaritra.me/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Guide pour l'ajout d'article]]></title>
             <description><![CDATA[Ajouter des articles ici est super facile]]></description>
-            <link>https://finaritra.vercel.app/blog/guide</link>
-            <guid isPermaLink="true">https://finaritra.vercel.app/blog/guide</guid>
+            <link>https://finaritra.me/blog/guide</link>
+            <guid isPermaLink="true">https://finaritra.me/blog/guide</guid>
             <category><![CDATA[Blog]]></category>
             <category><![CDATA[Mdx]]></category>
             <category><![CDATA[Next.js]]></category>
-            <dc:creator><![CDATA[Finaritra ANDRIANIAINA]]></dc:creator>
+            <dc:creator><![CDATA[Finaritra Haritiana ANDRIANIAINA]]></dc:creator>
             <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Poo]]></title>
             <description><![CDATA[Qu'est-ce que la poo?]]></description>
-            <link>https://finaritra.vercel.app/blog/poo</link>
-            <guid isPermaLink="true">https://finaritra.vercel.app/blog/poo</guid>
+            <link>https://finaritra.me/blog/poo</link>
+            <guid isPermaLink="true">https://finaritra.me/blog/poo</guid>
             <category><![CDATA[JAVA]]></category>
             <category><![CDATA[POO]]></category>
             <category><![CDATA[Dev]]></category>
-            <dc:creator><![CDATA[Finaritra ANDRIANIAINA]]></dc:creator>
+            <dc:creator><![CDATA[Finaritra Haritiana ANDRIANIAINA]]></dc:creator>
             <pubDate>Fri, 04 Jun 2021 13:13:21 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Choosing a tech stack for my personal dev blog in 2020]]></title>
             <description><![CDATA[Devii is a starter kit for building a personal website with the best tools 2020 has to offer.]]></description>
-            <link>https://finaritra.vercel.app/blog/the-ultimate-tech-stack</link>
-            <guid isPermaLink="true">https://finaritra.vercel.app/blog/the-ultimate-tech-stack</guid>
+            <link>https://finaritra.me/blog/the-ultimate-tech-stack</link>
+            <guid isPermaLink="true">https://finaritra.me/blog/the-ultimate-tech-stack</guid>
             <category><![CDATA[Static Site Generators]]></category>
             <category><![CDATA[React]]></category>
             <category><![CDATA[Next.js]]></category>

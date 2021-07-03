@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://finaritra.vercel.app/aboutme</loc>
+    <loc>https://finaritra.me/aboutme</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app</loc>
+    <loc>https://finaritra.me</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app/blog/ef_csharp_installation</loc>
+    <loc>https://finaritra.me/blog/ef_csharp_installation</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app/blog/ef_csharp_intro</loc>
+    <loc>https://finaritra.me/blog/ef_csharp_intro</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app/blog/guide</loc>
+    <loc>https://finaritra.me/blog/poo</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app/blog/poo</loc>
+    <loc>https://finaritra.me/blog/guide</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app/blog/prisma-stack</loc>
+    <loc>https://finaritra.me/blog/prisma-stack</loc>
   </url>
 
   <url>
-    <loc>https://finaritra.vercel.app/blog/the-ultimate-tech-stack</loc>
+    <loc>https://finaritra.me/blog/the-ultimate-tech-stack</loc>
   </url>
 </urlset>

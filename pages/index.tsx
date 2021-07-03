@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Container,
   Divider,
@@ -17,11 +18,14 @@ import React from "react";
 import { PostData, TimelineElement, Event } from "../blog.type";
 import BlogCard from "../components/BlogCard";
 import Markdown from "../components/Markdown";
-import { RepositoryCardList, UserCard } from "../components/Profile";
+import { Profile } from "../components/Profile";
+import { RepositoryCardList } from "../components/RepositoryCardList";
 import { loadBlogPosts, loadMarkdownFile } from "../loader";
 import { BiCheckCircle } from "react-icons/bi";
 import aboutme from "../about.me.json";
 import parse from "html-react-parser";
+import NextLink from "next/link";
+import { UserInfo } from "../components/UserInfo";
 
 const Header = () => {
   return (
@@ -124,15 +128,23 @@ const Home = (props: { introduction: any; posts: PostData[] }) => {
         <Heading my="5" mx={["0", "1"]}>
           Github
         </Heading>
-        <Stack direction={["column", "row"]} spacing={["0", 5]} flexWrap="wrap">
-          <UserCard />
+        <Stack direction={["column", "column", "row"]} spacing={["0", 5]}>
+          <Profile />
           <Box w={["full", "50%"]}>
             <Heading py="5" size="md">
               Popular repository
             </Heading>
             <RepositoryCardList limit={4} />
+            <NextLink passHref href="/aboutme">
+              <Button as="a" variant="solid" w="full">
+                Voir tout!!
+              </Button>
+            </NextLink>
           </Box>
         </Stack>
+        <Box p="5">
+          <UserInfo />
+        </Box>
       </Container>
     </>
   );
