@@ -26,15 +26,7 @@ export const UserInfo = () => {
       <List spacing="2">
         <ListItem>
           <ListIcon as={BiCurrentLocation} />
-          <strong>Adresse:</strong> Ambohimangakely, Antananarivo, Madagascar
-        </ListItem>
-        <ListItem>
-          <ListIcon as={FaWhatsapp} color="whatsapp.500" />
-          <strong>WhatsApp:</strong> +261 034 66 639 25
-        </ListItem>
-        <ListItem>
-          <ListIcon as={BiPhone} color="blue.500" />
-          <strong>Mobile:</strong> +261 034 66 639 25
+          <strong>Location:</strong> Antananarivo, Madagascar
         </ListItem>
         <ListItem>
           <ListIcon as={FaGithub} color="purple.500" />
