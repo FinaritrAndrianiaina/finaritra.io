@@ -145,6 +145,9 @@ const Home = (props: { introduction: any; posts: PostData[] }) => {
         <Box p="5">
           <UserInfo />
         </Box>
+        <Box m="5">
+          <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/album/270762122" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+        </Box>
       </Container>
     </>
   );
