@@ -37,7 +37,7 @@
     "globby": "^9.2.0",
     "gray-matter": "^4.0.2",
     "html-react-parser": "^1.2.6",
-    "next": "9.5",
+    "next": "11.1",
     "next-mdx-remote": "^3.0.2",
     "next-seo": "^4.24.0",
     "prettier": "^2.3.0",
