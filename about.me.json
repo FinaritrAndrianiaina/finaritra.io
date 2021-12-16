@@ -8,7 +8,8 @@
           "description":"Rejoins le programme de Master en alternance de l'ESTI"
         },
         {
-          "title":"Septembre: Obtiens une licence en informatique et télécommunication"
+          "title":"Septembre: Obtiens une licence en informatique et télécommunication",
+          "description","Mémoire de Licence intitulé Etude de faisabilité et prototypage d'une solution blockchain pour les marchands du réseau Dizzitup"
         },
         {
           "title": "Avril-Mai: Commence un stage de trois mois dans une startup innovant dans les fin-tech",
@@ -21,7 +22,7 @@
       "events": [
         {
           "title": "-----",
-          "description": "😷🤿. Normalement j'obtiens mon diplôme de license en Informatique mais devinez."
+          "description": "😷. Normalement j'obtiens mon diplôme de license en Informatique mais devinez."
         }
       ]
     },
