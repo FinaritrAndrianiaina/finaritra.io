@@ -149,8 +149,8 @@ const Home = (props: { introduction: any; posts: PostData[] }) => {
           <Heading py="5" size="md">
             MYPLAYLIST 🎶🔥
           </Heading>
-          <iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/9714754542" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> 
-        </Box>
+          <iframe title="deezer-widget" src="https://widget.deezer.com/widget/dark/playlist/9714754542" width="100%" height="300" frameBorder="0" allowTransparency={true} allow="encrypted-media; clipboard-write"></iframe> 
+          </Box>
       </Container>
     </>
   );
