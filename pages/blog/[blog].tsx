@@ -104,7 +104,7 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
     return popped.slice(0, -4).trim();
   });
   const paths = slugs.map((slug) => `/blog/${slug}`);
-  return { paths, fallback: "unstable_blocking" };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps = async ({ params }: any) => {
