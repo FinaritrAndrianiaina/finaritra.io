@@ -1,6 +1,15 @@
 {
   "timeline": [
     {
+      "date":2022,
+      "events":[
+        {
+          "title":"Mai: Rejoins PULSE",
+          "description":"Je commence une alternance en tant qu'ingénieur d'étude et développement chez <a style=\"font-weight:bold;color:white;background-color:red; padding:1px;\" href=\"https://www.pulse.mg/\">PULSE</a>. "
+        }
+      ]
+    },
+    {
       "date": 2021,
       "events": [
         {
