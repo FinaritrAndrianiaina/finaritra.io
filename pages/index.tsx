@@ -44,12 +44,8 @@ const Header = () => {
         textTransform="uppercase"
         textAlign="justify"
       >
-        Je suis passionné de programmation 💻, de jeux vidéos 🎮 et de voyage
-        🏃‍♂⛺.
+        Développeur Backend et Frontend. 
       </Heading>
-      <Text fontSize={["sm", "md"]} textAlign="center" pt={2}>
-        Vous êtes sur mon site web personnel construit avec nextjs.
-      </Text>
     </>
   );
 };
